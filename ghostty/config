@@ -1,0 +1,31 @@
+
+
+shell-integration-features = no-cursor,no-sudo,title
+
+# 字体设置
+
+font-size = 13
+font-family = "JetBrains Mono"
+
+# 主题和样式
+theme = rose-pine
+cursor-style = block
+cursor-style-blink = false
+cursor-color = white
+#adjust-cell-height = 35%
+
+
+# 鼠标相关
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-decoration = true
+
+# 窗口设置
+window-padding-balance = true
+window-save-state = always
+window-colorspace = "display-p3"
+
+# 颜色设置
+background = 000000
+
