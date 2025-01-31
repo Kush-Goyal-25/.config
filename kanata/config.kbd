@@ -1,0 +1,31 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps rsft a s d f j k l ; g h 
+)
+
+(defvar
+  tap-time 400
+  hold-time 400
+)
+
+(defalias
+  caps (tap-hold 15 15 caps bspc)
+  rsft (tap-hold 15 15 rsft caps)
+  a (tap-hold 400 400 a lmet)
+  s (tap-hold 400 400 s lalt)
+  d (tap-hold 400 400 d lsft)
+  f (tap-hold 400 400 f lctl)
+  j (tap-hold 400 400 j rctl)
+  k (tap-hold 400 400 k rsft)
+  l (tap-hold 400 400 l ralt)
+  ; (tap-hold 400 400 ; rmet) 
+  g (tap-hold 400 400 g left)
+  h (tap-hold 400 400 h right)
+)
+
+(deflayer base
+  @caps @rsft @a @s @d @f @j @k @l @; @g @h 
+)
