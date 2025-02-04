@@ -1,10 +1,11 @@
 
+background-opacity = 0.2
 
 shell-integration-features = no-cursor,no-sudo,title
 
 # 字体设置
 
-font-size = 13
+font-size = 14
 font-family = "JetBrains Mono"
 
 # 主题和样式
@@ -28,4 +29,3 @@ window-colorspace = "display-p3"
 
 # 颜色设置
 background = 000000
-
