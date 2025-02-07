@@ -1,0 +1,96 @@
+# [character]
+# # success_symbol = "[-->](bold green)"
+# success_symbol = "[➜](bold green)"
+# error_symbol = "[✗](bold red)"
+#
+# [directory]
+# style = "bold blue"
+#
+# [git_branch]
+# symbol = "🌱 "
+# style = "bold purple"
+
+
+# Starship configuration file
+# Schema: https://starship.rs/config-schema.json
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+
+# Custom module: Mount Indicator
+[custom.mount_indicator]
+when = "findmnt -T . -o FSTYPE -n | grep -q -E '^(nfs|fuse|cifs|smb)'"
+format = "[$symbol ($output)]($style)"
+symbol = "🐎"
+style = "bold yellow"
+command = "findmnt -T . -o SOURCE -n"
+
+# Custom module: Dockerfile
+[custom.dockerfile]
+detect_files = ["Dockerfile"]
+format = "[ 🐋](blue bold)"
+symbol = "🐋"
+
+# AWS module
+[aws]
+format = "[aws $symbol($profile )(\\[$duration\\] )]($style)"
+symbol = "󰅟 "
+style = "bold green"
+disabled = false
+
+# Kubernetes module
+[kubernetes]
+format = "[$symbol$context( \\($namespace\\))]($style)"
+symbol = "⛵ "
+style = "bold dimmed green"
+disabled = false
+
+# Node.js module
+[nodejs]
+format = "[$symbol($version)]($style)"
+symbol = "⬢ "
+style = "bold green"
+
+# Git Branch module
+[git_branch]
+format = "[$symbol$branch]($style)"
+symbol = " "
+style = "bold purple"
+
+# Git Status module
+[git_status]
+format = "([\\[$all_status$ahead_behind\\]]($style))"
+
+# Command Duration module
+[cmd_duration]
+format = "[⏱ $duration]($style)"
+style = "bold yellow"
+
+# Python module
+[python]
+format = "[${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\))]($style)"
+symbol = "🐍 "
+style = "bold blue"
+
+# Time module
+[time]
+format = "[$time]($style)"
+style = "bold dimmed white"
+
+# Username module
+[username]
+format = "[$user]($style)"
+style = "bold cyan"
+disabled = true
+
+# Memory Usage module
+[memory_usage]
+format = "[$symbol[$ram( | $swap)]]($style)"
+symbol = "🐏 "
+style = "bold dimmed white"
