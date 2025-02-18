@@ -1,11 +1,11 @@
 
-background-opacity = 0.2
+background-opacity = 0.8
 
 shell-integration-features = no-cursor,no-sudo,title
 
 # 字体设置
 
-font-size = 14
+font-size = 12
 font-family = "JetBrains Mono"
 
 # 主题和样式
@@ -20,7 +20,7 @@ cursor-color = white
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
-window-decoration = true
+window-decoration = false
 
 # 窗口设置
 window-padding-balance = true
