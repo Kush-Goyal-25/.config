@@ -1,17 +1,35 @@
+#| --------------------------------------------------------------------------
+ | (deflayer name
+ |
+ |                                                                     _
+ |  _   _    _    _    _    _    _    _    _    _    _    _    _       _  _  _
+ |  _   _    _    _    _    _    _    _    _    _    _    _    _       _     _
+ |  _   _    _    _    _    _    _    _    _    _    _    _    _       _     _
+ |  _   _    _    _    _    _    _    _    _    _    _    _            _     _
+ |  _   _    _    _    _    _    _    _    _    _    _                 _  _  _
+ |  _   _    _              _              _    _    _                 _  _  _
+ | )
+ | esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12 home ins  del
+ | grv  1    2    3    4    5    6    7    8    9    0    -     =        bspc
+ | tab  q    w    e    r    t    y    u    i    o    p    [     ]        ret
+ | caps a    s    d    f    g    h    j    k    l    ;    '     `        ret
+ | lsft \    z    x    c    v    b    n    m    ,    .    /              rsft
+ |      lctl lmet lalt           spc            ralt prnt rctl      pgup up   pgdn
+ |                                                                  lft down rght
+ -------------------------------------------------------------------------- |#
 (defcfg
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
   process-unmapped-keys yes
 )
-
-(defsrc
-  caps rsft a s d f j k l ; g h 
-)
-
-(defvar
-  tap-time 400
-  hold-time 400
-)
-
 (defalias
+  s_und S-min
+  ca C-a
+  cz C-z
+  cx C-x
+  cc C-c
+  cv C-v
+  q S-'
+  atb A-tab
   caps (tap-hold 15 15 caps bspc)
   rsft (tap-hold 15 15 rsft caps)
   a (tap-hold 400 400 a lmet)
@@ -21,11 +39,72 @@
   j (tap-hold 400 400 j rctl)
   k (tap-hold 400 400 k rsft)
   l (tap-hold 400 400 l ralt)
-  ; (tap-hold 400 400 ; rmet) 
-  g (tap-hold 400 400 g left)
-  h (tap-hold 400 400 h right)
+  ; (tap-hold 400 400 ; rmet)
 )
-
-(deflayer base
-  @caps @rsft @a @s @d @f @j @k @l @; @g @h 
+(defalias
+  1 S-1
+  2 S-2
+  3 S-3
+  4 S-4
+  5 S-5
+  6 S-6
+  7 S-7
+  8 S-8
+  9 S-9
+  0 S-0
+  = S-=
+  , S-, 
+  . S-.
+  [ S-[
+  ] S-]
+  / S-/
+)
+(defalias ;; layers
+  mod_prog (layer-toggle program)
+  mod_util (layer-toggle util)
+)
+(defalias
+  stog  (tap-hold-release 200 200 spc @mod_prog)
+  tut   (tap-hold-release 20 20 lsft @mod_util)
+  cutil (tap-hold-release 20 20 caps bspc)
+)
+(defvar
+  tap-time 400
+  hold-time 400
+)
+(defsrc
+                                                                                  end
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12         prnt  ins  pause
+  grv   1    2    3    4    5    6    7    8    9    0    -     =           bspc       home
+  tab   q    w    e    r    t    y    u    i    o    p    [     ]           \          del
+  caps  a    s    d    f    g    h    j    k    l    ;    '                 ret        pgup
+  lsft  z    x    c    v    b    n    m    ,    .    /                      rsft up    pgdn
+  lctl  lmet lalt               spc        ralt cmp  rctl                   lft down  rght
+)
+(deflayer qwerty
+                                                                                    d
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12         prnt  ins  pause
+  grv   1    2    3    4    5    6    7    8    9    0    -     =           bspc       home
+  tab   q    w    e    r    t    y    u    i    o    p    [     ]           \          del
+  @caps @a   @s   @d   @f   g    h    @j    @k   @l   @;    '                 ret        pgup
+  @tut  z    x    c    v    b    n    m    ,    .    /                      @rsft up    pgdn
+  lctl  lmet @ca               @stog        ralt cmp  rctl                   lft down  rght
+)
+(deflayer program
+                                                                                       _
+  _       _    _    _    _    _    _    _    _    _    _       _       _          _    _    _
+  @atb    @1   @2   @3   @4   @5   @6   @7   @8   @9   @0      @s_und  @=         _         _
+  _       8    7    6    5    _    lalt    [    ]    @,   @.      {       }          _      _
+  _       4  3    2    1    esc    lmet    @9   @0   +     =      -                 _         _
+  _       _    0  9  _  _  _    @[   @]   \    @/                         _    _    _
+  _       _    _              _              _    _    _                          _    _    _
+)
+(deflayer util
+                                                                                       _
+  _       _    _    _    _    _    _    _    _    _     _       _     _           _    _    _
+  _       _    _    _    _    _    _    _    _    _     _       _     _           _         _
+  _       _    _    _    _    _    _    _    _   _     _       _     _           _         _
+  _       _    _    _    _    _    lft    down up rght   _       _                 _         _
+  _       _    _    _    _    _    _    _    _    _     _                         _    _    _
+  _       _    _              _              _    _     _                         _    _    _
 )
