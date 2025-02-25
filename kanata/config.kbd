@@ -36,7 +36,7 @@ f9 (macro M-S-9)
 
 (defalias
   s_und S-min
-  ca C-a
+  ca C-q
   cz C-z
   cx C-x
   cc C-c
@@ -45,14 +45,14 @@ f9 (macro M-S-9)
   atb A-tab
   caps (tap-hold 15 15 caps bspc)
   rsft (tap-hold 15 15 rsft caps)
-  a (tap-hold 300 300 a lmet)
-  s (tap-hold 300 300 s lalt)
-  d (tap-hold 300 300 d lsft)
-  f (tap-hold 300 300 f lctl)
-  j (tap-hold 300 300 j rctl)
-  k (tap-hold 300 300 k rsft)
-  l (tap-hold 300 300 l ralt)
-  ; (tap-hold 300 300 ; rmet)
+  a (tap-hold 200 200 a lmet)
+  s (tap-hold 250 250 s lalt)
+  d (tap-hold 200 200 d lsft)
+  f (tap-hold 200 200 f lctl)
+  j (tap-hold 200 200 j rctl)
+  k (tap-hold 200 200 k rsft)
+  l (tap-hold 200 200 l ralt)
+  ; (tap-hold 200 200 ; rmet)
 )
 (defalias
   1 S-1
@@ -103,7 +103,7 @@ f9 (macro M-S-9)
   tab   q    w    e    r    t    y    u    i    o    p    [     ]           \          del
   @caps @a   @s   @d   @f   g    h    @j    @k   @l   @;    '                 ret        pgup
   @tut  z    x    c    v    b    n    m    ,    .    /                      @rsft up    pgdn
-  @mt  lmet @ca               @stog        ralt cmp  rctl                   lft down  rght
+  _  lmet @ca               @stog        @mt cmp  rctl                   lft down  rght
 )
 (deflayer program
                                                                                        _
@@ -118,7 +118,7 @@ f9 (macro M-S-9)
                                                                                        _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _    _    _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _         _
-  _       _    _    _    _    _    _    _    @`   _     _       _     _           _         _
+  _       _    _    _    _    _    _    @5    @`   @8     @7       _     _           _         _
   _       _    _    _    _    _    lft    down up rght   _       _                 _         _
   _       _    _    _    _    _    _    _    _    _     _                         _    _    _
   _       _    _              _              _    _     _                         _    _    _
