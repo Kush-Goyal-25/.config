@@ -60,6 +60,7 @@ alias e = exit
 alias .. = cd ..
 alias ... = cd ../..
 alias .... = cd ../../..
+alias a = tmux a
 
 # Git Aliases
 alias gst = git status
