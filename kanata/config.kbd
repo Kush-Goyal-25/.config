@@ -22,7 +22,7 @@
   process-unmapped-keys yes
 )
 (defalias mt (macro M-S-ret))
-(defalias 
+(defalias
 f1 (macro M-S-1)
 f2 (macro M-S-2)
 f3 (macro M-S-3)
@@ -46,7 +46,7 @@ f9 (macro M-S-9)
   caps (tap-hold 15 15 caps bspc)
   rsft (tap-hold 15 15 rsft caps)
   a (tap-hold 200 200 a lmet)
-  s (tap-hold 250 250 s lalt)
+  s (tap-hold 200 200 s lalt)
   d (tap-hold 200 200 d lsft)
   f (tap-hold 200 200 f lctl)
   j (tap-hold 200 200 j rctl)
@@ -68,7 +68,7 @@ f9 (macro M-S-9)
   \ S-\
   ` S-`
   = S-=
-  , S-, 
+  , S-,
   . S-.
   [ S-[
   ] S-]
@@ -109,9 +109,9 @@ f9 (macro M-S-9)
                                                                                        _
   _       _    _    _    _    _    _    _    _    _    _       _       _          _    _    _
   @atb    @1   @2   @3   @4   @5   @6   @7   @8   @9   @0      @s_und  @=         _         _
-  _       8    7    6    5    _    lalt    @[    @]    @,   @.      {       }          _      _
-  _       4  3    2    1    esc    lmet    @9   @0   @1     =      -                 _         _
-  _       _    0  9  +  @\  -    [   ]   \    @/                         _    _    _
+  _       8    7    6    5    _    lalt    @[    @]    +   -      {       }          _      _
+  _       4  3    2    1    esc    lmet    @9   @0   @1     =      @/                 _         _
+  _       _    0  9  _  @\  -    [   ]   \    @/                         _    _    _
   _       _    _              _              _    _    _                          _    _    _
 )
 (deflayer util
