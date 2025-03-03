@@ -43,6 +43,7 @@ alias ff = ans
 alias fe = fzf-edit
 alias fh = fzf-history
 alias fzf = fzf-select
+alias new = tmux new -s
 
 # Environment variables
 $env.EDITOR = "nvim"
