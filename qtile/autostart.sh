@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env nu 
 
 COLORSCHEME=DoomOne
 
@@ -6,7 +6,7 @@ COLORSCHEME=DoomOne
 lxsession &
 picom &
 nm-applet &
-#"$HOME"/.screenlayout/layout.sh &
+# $"($env.HOME)/.screenlayout/layout.sh" &
 sleep 1
 blueman-applet &
 volctl &
@@ -20,4 +20,4 @@ volctl &
 # 3. Uncomment to set wallpaper with nitrogen
 nitrogen --restore &
 xrandr --output Virtual-1 --mode 1920x1080 &
-sudo kanata -c config.kbd &
+kanata -c config.kbd &
