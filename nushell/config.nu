@@ -36,6 +36,11 @@ def ans [] {
     }
 }
 
+$env.config = {
+    edit_mode: vi
+}
+
+
 # Create an alias for the ans function
 alias ff = ans
 
@@ -44,6 +49,7 @@ alias fe = fzf-edit
 alias fh = fzf-history
 alias fzf = fzf-select
 alias new = tmux new -s
+alias tmux-reload = ^tmux source-file /home/monster/.config/tmux/tmux.conf
 
 # Environment variables
 $env.EDITOR = "nvim"
@@ -87,11 +93,19 @@ alias pacclean = sudo pacman -Rns (pacman -Qtdq)
 # Systemd shortcuts
 alias jc = journalctl -xe
 
+source ~/.cache/starship/init.nu
+
 # Hardware Monitoring
 alias diskuse = df -h | grep -v tmpfs
 alias gpuuse = if (which nvidia-smi) { nvidia-smi } else { radeontop }  # Check for GPU tools
-alias cpuuse = htop
+alias cpuuse = btop
 alias memuse = free -h
+
+
+# Quick jump aliases
+alias z. = zoxide query .      # current dir info
+alias za  = zoxide add         # add current dir
+alias zr  = zoxide remove      # remove current dir
 
 # System info shortcut
 def sysinfo [] {
@@ -99,4 +113,12 @@ def sysinfo [] {
     echo $"Uptime: (uptime -p)"
     echo $"Shell: (echo $nu.version)"
     neofetch --stdout
+}
+
+# Interactive zoxide with fzf preview
+def --env zz [] {
+    let dir = (zoxide query --list | fzf --preview "eza --color=always --icons {}")
+    if ($dir | is-not-empty) {
+        cd $dir
+    }
 }
