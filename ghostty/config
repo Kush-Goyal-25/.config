@@ -11,7 +11,7 @@ font-size = 13
 font-family = "JetBrains Mono"
 
 # 主题和样式
-theme = rose-pine
+theme = Rose Pine
 cursor-style = block
 cursor-style-blink = false
 cursor-color = white
