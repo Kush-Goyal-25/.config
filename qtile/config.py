@@ -25,6 +25,7 @@
 # SOFTWARE.
 
 import os
+import re
 import subprocess
 
 from libqtile import bar, extension, hook, layout, qtile, widget
@@ -265,7 +266,23 @@ keys = [
     ),
 ]
 
-groups = []
+groups = [
+    Group(
+        "1",
+        layout="max",
+        matches=[
+            Match(wm_class="firefox"),
+            Match(wm_class="zen"),
+            # Match(wm_class="zen-browser"),
+        ],
+    ),
+    # Group(
+    #     "2",
+    #     layout="max",
+    # ),
+]
+
+
 group_names = [
     "1",
     "2",
@@ -293,15 +310,15 @@ group_labels = [
 # group_labels = ["", "", "", "", "", "", "", "", "",]
 
 group_layouts = [
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
-    "monadtall",
+    "max",
+    "max",
+    "max",
+    "max",
+    "max",
+    "max",
+    "max",
+    "max",
+    "max",
 ]
 
 for i in range(len(group_names)):
