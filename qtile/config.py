@@ -30,6 +30,7 @@ import subprocess
 
 from libqtile import bar, extension, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.layout import matrix
 from libqtile.lazy import lazy
 
 # Make sure 'qtile-extras' is installed or this config will not work.
@@ -276,10 +277,31 @@ groups = [
             # Match(wm_class="zen-browser"),
         ],
     ),
-    # Group(
-    #     "2",
-    #     layout="max",
-    # ),
+    Group(
+        "2",
+        layout="max",
+        matches=[
+            Match(wm_class="ghostty"),
+        ],
+    ),
+    Group(
+        "3",
+        layout="max",
+    ),
+    Group(
+        "4",
+        layout="max",
+        matches=[
+            Match(wm_class="excalidraw"),
+        ],
+    ),
+    Group(
+        "5",
+        layout="max",
+        matches=[
+            Match(wm_class="ticktick"),
+        ],
+    ),
 ]
 
 
@@ -527,7 +549,7 @@ def init_widgets_list():
         widget.Spacer(length=8),
         widget.Clock(
             foreground=colors[8],
-            format="⏱  %a, %b %d - %H:%M",
+            format="⏱  %a, %b %d - %I:%M %p",
             decorations=[
                 BorderDecoration(
                     colour=colors[8],
