@@ -40,6 +40,12 @@ $env.config = {
     edit_mode: vi
 }
 
+def cr [file: string] {
+    g++ -std=c++17 -Wall $file -o out
+    if $env.LAST_EXIT_CODE == 0 {
+        ./out
+    }
+}
 
 # Create an alias for the ans function
 alias ff = ans
@@ -96,10 +102,10 @@ alias jc = journalctl -xe
 source ~/.cache/starship/init.nu
 
 # Hardware Monitoring
-alias diskuse = df -h | grep -v tmpfs
-alias gpuuse = if (which nvidia-smi) { nvidia-smi } else { radeontop }  # Check for GPU tools
-alias cpuuse = btop
-alias memuse = free -h
+# alias diskuse = df -h | grep -v tmpfs
+# alias gpuuse = if (which nvidia-smi) { nvidia-smi } else { radeontop }  # Check for GPU tools
+# alias cpuuse = btop
+# alias memuse = free -h
 
 
 # Quick jump aliases
