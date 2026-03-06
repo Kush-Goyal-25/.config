@@ -38,6 +38,15 @@ def ans [] {
 
 $env.config = {
     edit_mode: vi
+    keybindings: [
+        {
+            name: run_ans
+            modifier: control
+            keycode: char_f
+            mode: [emacs, vi_normal, vi_insert]
+            event: { send: executehostcommand cmd: "ans" }
+        }
+    ]
 }
 
 def cr [file: string] {
@@ -46,9 +55,6 @@ def cr [file: string] {
         ./out
     }
 }
-
-# Create an alias for the ans function
-alias ff = ans
 
 # Aliases for convenience
 alias fe = fzf-edit
@@ -106,7 +112,6 @@ source ~/.cache/starship/init.nu
 # alias gpuuse = if (which nvidia-smi) { nvidia-smi } else { radeontop }  # Check for GPU tools
 # alias cpuuse = btop
 # alias memuse = free -h
-
 
 # Quick jump aliases
 alias z. = zoxide query .      # current dir info
