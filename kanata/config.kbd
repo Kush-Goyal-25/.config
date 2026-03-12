@@ -59,7 +59,7 @@ f9 (macro M-S-9)
   h-pipe (tap-hold 200 200 h (macro C-q l C-q l))
   g-pipe (tap-hold 200 200 g (macro C-q h C-q h))
   q-pipe (tap-hold 200 200 q (macro C-q S-9))
-  r-pipe (tap-hold 200 200 r (macro C-q S-0))
+  r-pipe (tap-hold 200 200 r (macro C-q S-l))
   c-pipe (tap-hold 200 200 c C-S-l)
 )
 (defalias
