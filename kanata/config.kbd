@@ -46,19 +46,19 @@ f9 (macro M-S-9)
   atb A-tab
   caps (tap-hold 15 15 caps bspc)
   rsft (tap-hold 15 15 rsft caps)
-  a (tap-hold 200 200 a lmet)
-  s (tap-hold 200 200 s lalt)
-  d (tap-hold 200 200 d lsft)
-  f (tap-hold 200 200 f lctl)
-  j (tap-hold 200 200 j rctl)
-  k (tap-hold 200 200 k rsft)
-  l (tap-hold 200 200 l ralt)
-  ; (tap-hold 200 200 ; rmet)
+  a (tap-hold-release 200 200 a lmet)
+  s (tap-hold-release 200 200 s lalt)
+  d (tap-hold-release 200 200 d lsft)
+  f (tap-hold-release 200 200 f lctl)
+  j (tap-hold-release 200 200 j rctl)
+  k (tap-hold-release 200 200 k rsft)
+  l (tap-hold-release 200 200 l ralt)
+  ; (tap-hold-release 200 200 ; rmet)
   y-pipe (tap-hold 250 250 y (macro C-q S-\))
   t-pipe (tap-hold 250 250 t (macro C-q -))
   h-pipe (tap-hold 200 200 h (macro C-q l C-q l))
   g-pipe (tap-hold 200 200 g (macro C-q h C-q h))
-  e-pipe (tap-hold 200 200 e (macro C-q S-9))
+  q-pipe (tap-hold 200 200 q (macro C-q S-9))
   r-pipe (tap-hold 200 200 r (macro C-q S-0))
   c-pipe (tap-hold 200 200 c C-S-l)
 )
@@ -92,7 +92,7 @@ f9 (macro M-S-9)
   cutil (tap-hold-release 20 20 caps bspc)
 )
 (defchordsv2
-  (f j k) esc 250 all-released ()  ;; current
+  (a ;) esc 50 all-released ()  ;; current
 )
 (defvar
   tap-time 400
@@ -111,7 +111,7 @@ f9 (macro M-S-9)
                                                                                     d
   esc   @f1   @f2   @f3   @f4   @f5   @f6   @f7   @f8   @f9   f10  f11   f12         prnt  ins  pause
   grv   1    2    3    4    5    6    7    8    9    0    -     =           bspc       home
-  tab   q    w    @e-pipe    @r-pipe    @t-pipe    @y-pipe    u    i    o    p    [     ]           \          del
+  tab   @q-pipe    w    e    @r-pipe    @t-pipe    @y-pipe    u    i    o    p    [     ]           \          del
   @caps @a   @s   @d   @f   @g-pipe    @h-pipe    @j    @k   @l   @;    '                 ret        pgup
   @tut  z    x    @c-pipe    v    b    n    m    ,    .    /                      @rsft up    pgdn
   _  lmet @ca               @stog        @mt cmp  rctl                   lft down  rght
