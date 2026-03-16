@@ -92,7 +92,7 @@ f9 (macro M-S-9)
   cutil (tap-hold-release 20 20 caps bspc)
 )
 (defchordsv2
-  (a ;) esc 50 all-released ()  ;; current
+  (a ;) esc 250 all-released ()  ;; current
 )
 (defvar
   tap-time 400
