@@ -19,5 +19,12 @@ xrandr --output Virtual-1 --mode 1920x1080 &
 
 firefox &
 zen-browser &
+sleep 1
+ghostty &
+sleep 1
+excalidraw &
+flameshot &
+sleep 2
+ticktick &
 
 feh --bg-scale ~/.config/qtile/wallhaven-q21vkl.jpg

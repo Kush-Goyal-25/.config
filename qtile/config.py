@@ -76,6 +76,14 @@ def maximize_by_switching_layout(qtile):
         qtile.current_group.layout = "monadtall"
 
 
+@hook.subscribe.startup_complete
+def hide_bars_on_startup():
+    """Hide all top bars when Qtile starts"""
+    for screen in qtile.screens:
+        if screen.top:
+            screen.top.show(False)
+
+
 keys = [
     # The essentials
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
