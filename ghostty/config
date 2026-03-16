@@ -1,6 +1,6 @@
 
-
-background-opacity = 0.2
+config-file = themes/rosepine-custom
+background-opacity = 0.8
 background-blur = true
 
 shell-integration-features = no-cursor,no-sudo,title
@@ -9,12 +9,16 @@ shell-integration-features = no-cursor,no-sudo,title
 
 font-size = 13
 font-family = "JetBrains Mono"
+#font-family = JetBrainsMonoNL Nerd Font
 
 # 主题和样式
-theme = Rose Pine
+#theme = Rose Pine
 cursor-style = block
 cursor-style-blink = false
 cursor-color = white
+split-divider-color = #524f67
+#cursor-color = cell-foreground
+#cursor-text = cell-background
 #adjust-cell-height = 35%
 
 
