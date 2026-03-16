@@ -4,7 +4,7 @@ command_timeout = 500
 "$schema" = "https://starship.rs/config-schema.json"
 
 follow_symlinks = false
-add_newline = false
+add_newline = true
 
 format = """
 ➜\
@@ -65,6 +65,7 @@ format = "[[  $time ](fg:yellow bg:foam)]($style)"
 
 [custom.giturl]
 description = "Display symbol for remote Git server"
+shell = ["bash", "--noprofile", "--norc"]
 command = """
 GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
 if [[ "$GIT_REMOTE" =~ "github" ]]; then
