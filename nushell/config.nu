@@ -36,6 +36,8 @@ def ans [] {
     }
 }
 
+$env.config.show_banner = false
+
 $env.config = {
     edit_mode: vi
     keybindings: [
@@ -56,6 +58,10 @@ def cr [file: string] {
     }
 }
 
+def ratemirrors [] {
+    rate-mirrors --protocol https arch | sudo tee /etc/pacman.d/mirrorlist
+}
+
 # Aliases for convenience
 alias fe = fzf-edit
 alias fh = fzf-history
@@ -66,7 +72,7 @@ alias tmux-reload = ^tmux source-file /home/monster/.config/tmux/tmux.conf
 # Environment variables
 $env.EDITOR = "nvim"
 $env.VISUAL = "nvim"
-$env.PAGER = "bat"
+# $env.PAGER = "bat"
 $env.BAT_THEME = "GitHub"
 
 # Aliases for file listing
