@@ -44,6 +44,8 @@ mod = "mod4"  # Sets mod key to SUPER/WINDOWS
 myTerm = "ghostty"  # My terminal of choice
 myBrowser = "zen-browser"  # My browser of choice
 myEmacs = "nvim"  # The space at the end is IMPORTANT!
+myFiles = "nautilus"  # The space at the end is IMPORTANT!
+myBrowser1 = "firefox"
 
 
 @hook.subscribe.startup
@@ -89,6 +91,8 @@ keys = [
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
     Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun"), desc="Run Launcher"),
     Key([mod], "w", lazy.spawn(myBrowser), desc="Web browser"),
+    Key([mod], "i", lazy.spawn(myBrowser1), desc="Web browser"),
+    Key([mod], "u", lazy.spawn(myFiles), desc="File Manager"),
     Key(
         [mod],
         "b",
