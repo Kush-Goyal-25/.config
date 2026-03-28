@@ -1,0 +1,2913 @@
+clear
+sudo pacman -S mesa-utils<\n>
+sudo pacman -Syu<\n>
+clear
+sudo pacman -S libglvnd mesa<\n>
+clear
+sudo pacman -S ghostty
+clear
+ghostty
+sudo pacman -R ghostty
+clear
+yays rofi
+c
+cd Downloads/
+git clone https://github.com/Kush-Goyal-25/nvim.git
+clear
+cd
+sudo pacman -Syu
+clear
+v .
+cd .config/
+ls
+cd
+clear
+cd Downloads/
+ls
+git clone https://github.com/Kush-Goyal-25/nvim.git
+cd
+v .
+clear
+cd .config/
+code
+code .
+ls
+code tmux/tmux.conf
+cd
+clear
+ff
+cd .local/
+code .
+cd
+ff
+cd .local/bin/
+ls
+cd
+chmod +x ~/.local/bin/tmux-sessionizer
+clear
+ff
+yays fzf
+clear
+ff
+clear
+yay -S ghostty-git<\n>
+clear
+code ~/.config/ghostty/ghostty.toml<\n>
+code .config/kanata/config.kbd
+sudo kanata -c config.kbd
+clear
+yays kanata
+yays bat
+cd .config/kanata/
+sudo kanata -c config.kbd
+clear
+cd
+c
+yay -S nerd-fonts-complete<\n>
+clear
+yays hyprland
+c
+cd .config/
+ls
+code ghostty/
+cd
+c
+yays hyprpaper
+c
+cd .config/
+ls
+cd
+c
+hyprpaper
+c
+sudo pacman -S wayland wayland-protocols wlroots xorg-server<\n>
+c
+mkdir -p ~/.config/hypr<\n>
+sudo pacman -S xorg-xwayland
+c
+cd .config/
+mkdir hypr
+ls
+cp /usr/share/doc/hyprland/examples/hyprland.conf ~/.config/hypr/hyprland.conf
+c
+cd
+code ~/.config/hypr/hyprland.conf<\n>
+hyprland
+c
+code ~/.config/hypr/hyprland.conf<\n>
+yays wofi
+c
+hyprland
+c
+exit
+c
+hyprland
+c
+hyprland
+c
+hyprland
+c
+code .config/hyprland-preview-share-picker/config.yaml
+code .config/hypr/
+hyprland
+c
+hyprland
+c
+sudo pacman -S hyprland hyprpaper hypridle hyprlock xdg-desktop-portal-hyprland kitty waybar wofi mako polkit-gnome grim slurp wl-clipboard brightnessctl playerctl thunar firefox
+c
+cd .local/bin/
+code bash
+cd
+c
+code .config/waybar/style.css
+code .config/waybar/
+sudo pacman -S waybar pavucontrol pamixer blueman network-manager-applet btop ttf-jetbrains-mono-nerd
+c
+hyprland
+clear
+hyprland
+c
+v .config/hypr/
+code .config/nvim/
+c
+v .config/hypr/
+c
+v .config/hypr/
+sudo pacman -S xclip<\n>
+sudo pacman -S wl-clipboard<\n>
+c
+v .config/hypr/
+yays qtile
+sudo pacman -S dunst rofi networkmanager nm-applet pulseaudio pavucontrol picom feh scrot light playerctl xorg-xrandr redshift<\n>
+c
+code .config/qtile/config.py
+v .config/qtile/config.py
+qtile
+/usr/bin/qtile start
+c
+yay -S qtile-extras
+c
+qtile start
+c
+yay -S qtile-extras-git
+c
+qitle start
+qtile start
+c
+qtile start
+c
+qtile start
+c
+qitle
+qtile
+/usr/bin/qtile start
+clear
+qtile start
+clear
+yays nitrogen
+c
+sudo pacman -R ghostty
+sudo pacman -R ghostty-git
+c
+yays opencode
+c
+opencode
+c
+code .config/qtile/
+c
+qtile start
+c
+sudo code /usr/share/xsessions/qtile.desktop
+sudo nvim /usr/share/xsessions/qtile.desktop
+clear
+c
+qtile start
+v /usr/bin/qtile
+qtile start
+c
+sudo pacman -S qtile
+c
+startx qtile
+qtile start
+c
+yays qtile-extras
+c
+qtile start
+c
+startx qtile
+sudo startx qtile
+c
+yays ghostty
+c
+sudo pacman -S nvidia nvidia-utils<\n>
+sudo pacman -S gtk3 gtk4<\n>
+sudo pacman -S mesa mesa-libgl<\n>
+c
+sudo pacman -S gtk3 gtk4 mesa lib32-mesa<\n>
+sudo pacman -Syu
+yays xrander
+c
+code .config/qtile/
+xrandr --output Virtual-1 --mode 1920x1080 &<\n>
+yays xrandr
+yay -S xorg-xrandr<\n>
+xrandr --output Virtual-1 --mode 1920x1080 &<\n>
+xrandr --output Virtual-1 --mode 1920x1080 <\n>
+c
+sudo pacman -S virtualbox-guest-utils<\n>
+sudo systemctl enable vboxservice<\n>sudo systemctl start vboxservice<\n>
+sudo pacman -S virtualbox-guest-utils<\n>sudo systemctl enable vboxservice<\n>sudo reboot<\n>
+c
+btop
+cd .config/kanata/
+$HOME/.config/ghostty/config
+cd .config/ghostty/
+c
+v .config/ghostty/
+cd .config/ghostty/
+cd
+sudo pacman -S ttf-jetbrains-mono
+c
+sudo pacman -S ttf-jetbrains-mono-nerd
+c
+# Update system first (good practice)<\n>sudo pacman -Syu<\n><\n># Install both variants (no conflict)<\n>sudo pacman -S ttf-jetbrains-mono ttf-jetbrains-mono-nerd<\n><\n># Refresh font cache (usually automatic, but safe to run)<\n>fc-cache -fv
+c
+fc-list | grep -i "JetBrains"<\n># or more precise:<\n>fc-list | grep -i "JetBrainsMono"
+c
+v .
+mkdir -p ~/.config/fontconfig<\n>nano ~/.config/fontconfig/fonts.conf
+mkdir ~/.config/fontconfig<\n>open ~/.config/fontconfig/fonts.conf | default "" | save --force ~/.config/fontconfig/fonts.conf
+mkdir ~/.config/fontconfig
+c
+nvim ~/.config/fontconfig/fonts.conf
+<?xml version='1.0'?><\n><!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'><\n><fontconfig><\n><\n>  <alias><\n>    <family>monospace</family><\n>    <prefer><\n>      <family>JetBrainsMono Nerd Font</family><\n>      <family>JetBrainsMono Nerd Font Mono</family><\n>      <family>JetBrains Mono</family><\n>      <family>DejaVu Sans Mono</family><\n>    </prefer><\n>  </alias><\n><\n>  <alias><\n>    <family>fixed</family><\n>    <prefer><\n>      <family>JetBrainsMono Nerd Font</family><\n>    </prefer><\n>  </alias><\n><\n></fontconfig>
+c
+fc-cache -fv
+fc-match monospace
+c
+sudo kanata -c config.kbd
+cd .config/ghostty/
+v .
+..
+cd kanata/
+cd .config/ghostty/
+v .
+sudo kanata -c config.kbd
+cd .config/kanata/
+btop
+cd .config/ghostty/
+v .
+..
+cd nvim/
+v .
+cd
+<\n>yay -S tree-sitter-cli-git
+sudo pacman -S tree-sitter-cli
+c
+tree-sitter --version
+sudo pacman -S base-devel git rustup nodejs npm<\n>rustup default stable
+c
+v .
+cd .config/ghostty/
+v .
+..
+cd nvim/
+v .
+cd
+cd .config/nvim/
+v .
+ls
+..
+ls
+cd nvim/
+ls
+cd
+c
+c
+cd .config/nvim/
+ls
+v .
+cd
+c
+cd .config/nvim/
+cd .config/
+v .
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+ls
+cd nvim/
+v .
+cd .config/nvim/
+v .
+cd
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.cache/nvim
+nvim .
+v .
+cd
+c
+cd .config/nvim
+cd .config/
+v .
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+cd nvim/
+v .
+yays lazygit
+c
+v .
+c
+v .
+cd
+c
+cd .config/
+ls
+cd nvi
+c
+git clone https://github.com/Kush-Goyal-25/nvim.git
+v .
+cd nvim/
+v .
+cd
+c
+sudo pacman -S nodejs npm<\n>
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \<\n>  ~/.local/share/nvim/site/pack/packer/start/packer.nvim<\n>
+c
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim<\n>
+c
+cd .config/nvim/
+v .
+cd .config/kanata/
+yays antigravity-bin
+yay -S antigravity-bin<\n>
+c
+sudo mkdir -p /etc/apt/keyrings<\n>curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | \<\n>  sudo gpg --dearmor --yes -o /etc/apt/keyrings/antigravity-repo-key.gpg<\n>echo "deb [signed-by=/etc/apt/keyrings/antigravity-repo-key.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | \<\n>  sudo tee /etc/apt/sources.list.d/antigravity.list > /dev/null
+c
+yay -S antigravity-bin
+sudo pacman -S antigravity
+yay -S antigravity
+c
+cd .config/
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+cd /home/monster/.gemini/antigravity/scratch
+cd nvim/
+v .
+c
+python3 cleanup.py
+nvim --headless "+Lazy! sync" +qa
+nvim --headless +q
+nvim --headless "+checkhealth" +qa
+nvim --headless -c "print('Success')" +q
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health.log 2>&1"
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health_fixed.log 2>&1"
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health_final.log 2>&1"
+rm cleanup.py health.log health_fixed.log health_final.log
+v .
+nvim --headless "+checkhealth" +qa
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health_manual_handlers.log 2>&1"
+nvim --headless "+checkhealth telescope" +qa
+bash -c "nvim --headless '+checkhealth telescope' +qa > /home/monster/.gemini/antigravity/scratch/telescope_health.log 2>&1"
+v .
+nvim --headless "+Lazy! sync" +qa
+bash -c "nvim --headless '+checkhealth telescope' +qa > /home/monster/.gemini/antigravity/scratch/telescope_health_robust.log 2>&1"
+rm cleanup.py health*.log telescope_health*.log
+bash -c "nvim --headless '+checkhealth telescope' +qa > /home/monster/.gemini/antigravity/scratch/telescope_health_final.log 2>&1"
+rm cleanup.py health*.log telescope_health*.log
+v .
+nvim --headless +q
+bash -c "nvim --headless -c 'checkhealth harpoon' +qa > /home/monster/.gemini/antigravity/scratch/harpoon_health.log 2>&1"
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health_harpoon_fix.log 2>&1"
+bash -c "nvim --headless '+checkhealth' +qa > /home/monster/.gemini/antigravity/scratch/health_harpoon_final.log 2>&1"
+v .
+c
+bash -c "nvim --headless '+checkhealth' +qa 2>&1 | head -20"
+v .
+cd
+c
+yays snapshot
+c
+v .
+cd .config/
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+cd /home/monster/.gemini/antigravity/scratch
+cd
+c
+yay -S cursor-bin<\n>
+cd Downloads/
+c
+v .
+yay -S cursor-bin<\n>
+c
+v .
+cd
+c
+sudo pacman -Syu
+c
+sudo pacman -R code
+c
+v .
+c
+v .
+cd
+c
+sudo pacman -Syu neovim
+c
+v .
+cd .config/nvim/
+v .
+c
+v .
+code .
+v .
+c
+cd
+c
+ff
+cd .config/nushell/
+cd
+c
+cd .local/bin/
+ls
+v .
+cd
+c
+ff
+v .
+ff
+v .
+v .
+..
+ls
+v .
+c
+yays starship
+c
+cd nushell/
+v .
+..
+cd starship/
+v .
+starship --version
+c
+..
+cd nushell/
+e
+# This creates/updates ~/.cache/starship/init.nu<\n>starship init nu | save --force ~/.cache/starship/init.nu
+cd .config/nushell/
+neofetch
+c
+..
+cd nvim/
+c
+v .
+ff
+v .
+sudo pacman -S zoxide
+c
+# This creates/updates ~/.config/nushell/zoxide.nu<\n>zoxide init nushell | save --force ~/.config/nushell/zoxide.nu
+clear
+v .
+cd
+c
+source ~/.config/nushell/zoxide.nu
+c
+ff
+z .config/nushell/
+z Downloads/
+c
+z
+z Downloads/
+c
+ls ~/.config/nushell/zoxide.nu<\n># should show the file
+cd .config/nushell/
+cd
+.config/nushell/
+cd
+Downloads/
+cd
+cd .config/nushell/
+c
+cd
+nushell
+c
+cd .config/nushell/
+za
+c
+..
+Downloads/
+ls
+yays 
+yay
+c
+v .
+..
+ff
+opencode
+c
+cd
+c
+yays nitrogen
+c
+sudo pacman -S nitrogen<\n>
+c
+yay -S gtk2 gtkmm<\n>yay -S nitrogen<\n>
+c
+v .
+sudo kanata -c config.kbd
+cd .config/kanata/
+cd
+c
+v .
+cd
+c
+sudo nvim /etc/systemd/system/kanata.service<\n>
+sudo systemctl daemon-reload<\n>sudo systemctl enable kanata.service<\n>
+c
+ff
+v. 
+ff
+v .
+opencode
+Re
+sudo kanata -c config.kbd
+cd .config/kanata/
+sudo pacman -S wmctrl
+c
+v .
+cd .config/kanata/
+ff
+v .
+ff
+cd .config/qtile/
+v .
+cd
+c
+qtile start
+cd .config/qtile/
+dc
+cd
+c
+cd .config/kanata/
+ff
+cd /usr/bin/
+ls
+v kanata
+cd
+c
+sudo visudo
+opencode
+v .
+ff
+sudo kanata -c config.kbd
+cd .config/kanata/
+ff
+opencode
+v .
+ff
+sudo kanata -c config.kbd
+/bin/python /home/monster/.config/qtile/config.py
+cd .config/qtile/
+v .
+cd .config/kanata/
+v .
+cd .config/qtile/
+v .
+cd .config/kanata/
+v .
+ff
+sudo pacman -S wmctrl
+c
+cd /usr/bin/
+cd
+c
+cd
+c
+sudo kanata -c config.kbd
+sudo visudo -f /etc/sudoers.d/99-kanata-nopasswd
+cd
+c
+cd .config/nushell/
+cd
+c
+mkdir -p ~/.config/systemd/user
+mkdir ~/.config/systemd/user
+c
+mkdir ~/.config/systemd/user
+c
+ls ~/.config/systemd/user
+# Create the service file<\n>nvim ~/.config/systemd/user/kanata.service
+systemctl --user daemon-reload<\n>systemctl --user enable --now kanata.service
+c
+systemctl --user status kanata
+c
+systemctl --user status kanata
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+ff
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+cd
+c
+chmod +x ~/.config/qtile/autostart.sh
+c
+sudo pacman -S wmctrl
+wmctrl -l
+cd
+c
+sudo pacman -S xdotool
+c
+cd
+c
+chmod +x ~/.config/qtile/autostart.sh
+c
+wmctrl --version<\n># should show wmctrl version info
+wmctrl -l
+opencode
+ff
+v .
+tmux a
+c
+v .
+ff
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+v\
+c
+sudo pacman -R zen-browser-bin
+ff
+..
+cd tmux
+..
+tmux
+cd tmux
+c
+v .
+opencode
+v .
+v .
+ff
+v .
+cd .tmux/
+ls
+cd
+c
+tmux source-file ~/.tmux.conf
+tmux source-file ~/.tmux/plugins/tpm/tpm
+c
+tmux source-file ~/tmux/tmux.conf
+tmux source-file ~/home/monster/.config/tmux/tmux.conf
+tmux reload
+tmux-reload
+fzf
+yays fzf
+c
+fzf
+c
+cd .config/tmux/
+ls
+source tmux.conf
+c
+tmux-reload
+opencode
+ff
+v .
+ff
+c
+tmux-reload
+v .
+ff 
+yays zen-browser
+c
+ff
+yays zen-browser-bin
+opencode
+v .
+tmux kill-server
+c
+v. 
+c
+opencode
+v .
+ff
+v .
+v .
+ff
+cd
+c
+ff
+cd .config/nushell/
+yays zen-browser-bin
+c
+cd
+c
+v .
+v .
+ff
+FF
+c
+ff
+..
+v tmux/
+opencode
+v .
+we
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+ff
+v .
+journalctl -b -u qtile | grep DEBUG
+v .
+opencode
+v .
+sudo pacman -Syu
+ff
+c
+cd .config/qtile/
+v .
+ff
+v .
+ff
+v .
+ff
+v .
+v .
+cd Documents/
+ls
+v test.txt
+ff
+c
+v .
+ff
+git config --global core.editor "neovim"
+c
+git config --global user.name "Kush Goyal"<\n>
+git config --global user.email "kush.goyal.personal@gmail.com"<\n>
+git config --global --list<\n>
+gh auth login<\n>
+ssh-keygen -t ed25519 -C "kush.goyal.personal@gmail.com"<\n>
+c
+mkdir ~/.ssh<\n>
+c
+ssh-keygen -t ed25519 -C "kush.goyal.personal@gmail.com"<\n>
+c
+git init
+git add .
+git commit -m "my final fixed config"
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+git remote -v
+git push -u origin main
+cd Documents/
+c
+ff
+v .
+ls
+mkdir DSA
+ls
+ff
+yays cpp
+v DSA/
+v .
+v .
+v .
+ff
+v .
+opencode
+c
+v .
+opencode
+c
+opencode
+c
+v .
+v .
+v .
+c
+v .
+..
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+v .
+cd DSA/
+cd DSA/
+c
+opencode
+v .
+..
+cd nvim/
+v .
+..
+cd nvim/
+v nvim/
+v .
+cd nvim/
+ff
+gitk
+sudo pacman -S tk<\n>
+c
+v .
+v .
+opencode
+c
+v .
+ff
+git clone https://github.com/Kush-Goyal-25/nvim.git
+c
+cd nvim/
+v. 
+c
+cd nvim/
+v .
+v .
+v .
+c
+v .
+cd
+c
+rm -rf ~/.local/share/nvim/lazy/nvim-treesitter
+rm -rf ~/.local/share/nvim/lazy-rocks
+rm -rf ~/.cache/nvim
+cat ~/.config/nvim/lua/josean/lazy.lua
+c
+ls ~/.local/share/nvim/lazy/nvim-treesitter/
+ls ~/.local/share/nvim/lazy/
+git clone https://github.com/nvim-treesitter/nvim-treesitter \<\n>  ~/.local/share/nvim/lazy/nvim-treesitter
+rm -rf ~/.local/share/nvim/lazy/nvim-treesitter && \<\n>git clone https://github.com/nvim-treesitter/nvim-treesitter \<\n>  ~/.local/share/nvim/lazy/nvim-treesitter
+ls ~/.local/share/nvim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua
+c
+cd ~/.local/share/nvim/lazy/nvim-treesitter && git checkout v0.9.3
+cd ~/.local/share/nvim/lazy/nvim-treesitter; git checkout v0.9.3
+git clone https://github.com/nvim-treesitter/nvim-treesitter ~/.local/share/nvim/lazy/nvim-treesitter
+c
+cd ~/.local/share/nvim/lazy/nvim-treesitter; git checkout v0.9.3
+ls ~/.local/share/nvim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua
+cd nvim/
+v .
+v .
+cd
+c
+cat ~/.config/nvim/lua/josean/plugins/which-key.lua
+c
+v ~/.config/nvim/lua/josean/plugins/which-key.lua
+v .
+c
+v .
+ls ~/.local/share/nvim/lazy/nvim-treesitter-textobjects/
+ls ~/.local/share/nvim/lazy/nvim-treesitter-textobjects/lua/nvim-treesitter-textobjects/
+cd ~/.local/share/nvim/lazy/nvim-treesitter-textobjects; git log --oneline -5
+cd ~/.local/share/nvim/lazy/nvim-treesitter-textobjects; git checkout v0.9.3
+c
+cd ~/.local/share/nvim/lazy/nvim-treesitter-textobjects; git tag | tail -20
+ls ~/.local/share/nvim/lazy/nvim-treesitter-textobjects/lua/
+ls ~/.local/share/nvim/lazy/nvim-treesitter-textobjects/lua/nvim-treesitter-textobjects/
+cd ~/.local/share/nvim/lazy/nvim-treesitter-textobjects; git checkout 2d6b83e
+v .
+cd nvim/
+git add .
+git commit -m "second final fixed config"
+ff
+git push -u origin main
+c
+v .
+ff
+v. 
+c
+ff
+pacu
+v .
+v .
+v .
+git add .
+git commit -m "second final fixed config"
+ff
+git push -u origin main
+c
+v .
+ff
+https://github.com/ThePrimeagen/kata-machine.git
+git clone https://github.com/ThePrimeagen/kata-machine.git
+c
+ee
+v .
+yarn install
+yays yarn
+yarn install
+c
+sudo pacman -S typescript<\n>
+v .
+yarn generate
+npx jest Linear
+c
+npx jest Binary
+c
+npx jest BinarySearch
+c
+npx jest BinarySearch
+ff
+npx jest BinarySearch
+c
+npx jest BinarySearch
+npx jest Crystal
+..
+mkdir CSES
+v CSES/
+ff
+timedatectl<\n>
+timedatectl list-timezones<\n>
+c
+v .
+ff
+sudo pacman -S go
+c
+go --version
+go version
+c
+cd Documents/
+mkdir golang
+v .
+ls
+c
+go
+c
+go mod init example.com/hello
+ls
+cat > main.go << 'EOF'
+c
+go run .
+go run hello.go
+v .
+ff
+v\
+cd
+c
+pacu
+c
+ls
+curl -L https://github.com/bootdotdev/worldbanc/archive/refs/heads/main.zip -o worldbanc.zip
+ls
+unzip worldbanc.zip
+c
+ls
+rm worldbanc.zip
+ls
+c
+mv worldbanc-main worldbanc
+sudo chown -R $(whoami) worldbanc
+whoami
+c
+ls
+cd worldbanc/
+ls
+v .
+c
+ls
+cd ..
+..
+cd Documents/worldbanc/
+c
+..
+ls worldbanc/
+c
+pwd
+c
+..
+ls
+..
+c
+ls
+cd home/
+ls
+cd monster/
+c
+ls
+cd Documents/worldbanc/
+c
+ls
+ls private/
+yays neofetch
+neofetch
+yays grok-cli
+c
+grok-cli
+grok-cli --version
+c
+yays grok-cli
+grok-cli 
+c
+sudo pacman -R grok-cli
+c
+yay -S excalidraw-pake-bin<\n>
+c
+ff
+tmux session
+tmux ls
+c
+cd
+c
+yays flameshot
+c
+btop
+v .
+tmux a
+v .
+c
+v .
+ff
+cd
+c
+timedatectl status
+timedatectl list-timezones | grep -i kolkata
+sudo timedatectl set-timezone Asia/Kolkata
+timedatectl status
+timedatectl set-ntp true   # if it says "no" — turn on internet time sync
+v .
+ff
+c
+npx jest Bubble
+c
+npx jest Bubble
+c
+npx jest Bubble
+v .
+c
+v\
+c
+g++ wierd_algo.cpp -o wierd_algo
+c
+./wierd_algo
+g++ wierd_algo.cpp -o wierd_algo
+./wierd_algo
+g++ wierd_algo.cpp -o wierd_algo
+./wierd_algo
+c
+g++ missing_number.cpp -o missing_number
+./missing_number
+g++ missing_number.cpp -o missing_number
+./missing_number
+g++ missing_number.cpp -o missing_number
+./missing_number
+g++ missing_number.cpp -o missing_number
+./missing_number
+g++ missing_number.cpp -o missing_number
+./missing_number
+g++ missing_number.cpp -o missing_number
+./missing_number
+v\e
+v .
+ff
+v .
+v .
+c
+neofetch
+yays ticktick
+c
+neofetch
+c
+neofetch
+v .
+ff
+v .
+cdc
+cd
+c
+pacu
+ff
+v .
+ff
+tmux session
+tmux session ls
+yays fzf
+fzf
+cd /usr/bin/
+ls
+find tmux
+v .
+cd
+c
+cd .local/bin/
+ls
+v .
+ff
+cd .local/bin/
+v .
+dc
+cd
+c
+cd .local/bin/
+v .
+cd
+fe
+ff
+cd .local/bin/
+v .
+ff
+systemctl --user restart pipewire pipewire-pulse wireplumber
+cd Documents/
+v .
+cd
+systemctl --user restart pipewire pipewire-pulse wireplumber
+udo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
+sudo pacman -S gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav ffmpeg
+pavucontrol
+systemctl --user restart pipewire pipewire-pulse wireplumber
+neofetch
+systemctl --user restart pipewire pipewire-pulse wireplumber
+sudo pacman -R antigravity
+pacu
+sudo pacman -R antigravity
+sudo pacman -R cursor
+sudo pacman -R cursor-bin
+yays zed
+cd
+c
+btop
+v .
+ff
+v .
+cd
+ff
+v .
+git status
+a
+gst
+ff
+gst
+gb
+cd
+c
+pacu
+za
+ff
+bat config.nu
+neofetch
+v .
+ff
+gs
+neofetch
+ls
+v .
+ff
+v .
+cd
+c
+cd Documents/DSA/
+v .
+v .
+ff
+systemctl --user restart pipewire pipewire-pulse wireplumber<\n>
+c
+systemctl --user restart pipewire pipewire-pulse wireplumber<\n>
+pacu
+sudo pacman -S ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly<\n>
+lspci | grep -E "VGA|3D"<\n>
+sudo pacman -S xf86-video-vmware mesa open-vm-tools<\n>
+sudo pacman -S xf86-video-fbdev mesa open-vm-tools<\n>
+sudo systemctl enable vmtoolsd
+sudo systemctl start vmtoolsd
+c
+sudo systemctl start vmtoolsd
+systemctl --user restart pipewire pipewire-pulse wireplumber<\n>
+pipewire-pulse
+yays pipewire-pulse
+systemctl --user restart pipewire pipewire-pulse wireplumber<\n>
+pulseaudio
+pipewire
+cd
+c
+pulseaudio
+yays volctl
+voltctl
+voltctl &
+c
+yays blueman-applet
+yays blueman-applet 
+neofetch
+cd
+c
+date +"%I:%M:%S %p"<\n># Example output: 05:55:30 PM
+date +"%a %b %d %I:%M:%S %p %Z %Y"<\n># Example: Tue Mar 04 05:55:30 PM IST 2026
+date now | format date "%a %b %d %I:%M:%S %p %Z %Y"
+ff
+v .
+v .
+ff
+mkdir Algorithms
+cd Algorithms/
+c
+ls
+g++ bit_manipulation.cpp bit_manipulation
+g++ bit_manipulation.cpp -o bit_manipulation
+ls
+./bit_manipulation
+ff
+e
+exit
+rm bit_manipulation
+ls
+c
+cr bit_manipulation.cpp
+cd Documents/Algorithms/
+ls
+cr bit_manipulation.cpp
+v .
+v .
+a
+cr bit_manipulation.cpp
+ff
+cr bit_manipulation.cpp
+v .
+v .
+a
+ls
+cd
+cd Documents/golang/
+v .
+ff
+ls
+package main
+go run hello.go
+ls -a
+go run main.go
+go build main.go
+./main
+./main.go
+neofetch
+go run main.go
+v .
+go run main.go
+ff
+go run main.go
+cd Documents/obsidian/
+go run main.go
+v .
+go run main.go
+we
+v .
+ff
+sudo kanata -c ~/.config/kanata/config.kbd
+ff
+v .
+ff
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+ff
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+neofetch
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+neofetch
+lazygit
+nvim
+btop
+neofetch
+lazygit
+nvim
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+v .
+a
+nautilis
+nautilus
+v .
+ff
+ls
+..
+ls
+cd .local/bin/
+v .
+v .
+v .
+v .
+v .
+v .
+c
+gs
+ff
+zz
+z.
+diskuse
+gpuuse
+cpuuse
+ff
+.
+..
+cd Downloads/
+ls
+pacu
+v .
+opencode
+v .
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+a
+ls
+cr repitions.cpp
+cr incresing_array.cpp
+v .
+v\
+cd
+c
+pacu
+ls
+c
+go run main.go
+v .
+v .
+v .
+go run main.go
+v .
+go run main.go
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+go run main.go
+v .
+v .
+a
+ff
+v .
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+c
+v .
+ls
+mkdir gittest
+cd gittest/
+c
+ls
+v .
+git status 
+git init
+git tree
+git mktree
+git add .
+git mktree
+git add .
+git status 
+git add test.txt
+git commit -m "batman"
+git log
+git checkout new
+git switch -c new
+git branch
+git switch -c master
+git switch master
+git checkout new
+git branch
+ls
+ls -a
+ls -la
+v .
+cd .local/bin/
+git branch
+git checkout master
+git --version
+git config --global --list<\n>
+cat git config --global --list
+bat git config --global --list
+git config --global --list<\n>
+git clone https://github.com/Kush-Goyal-25/git_practice.git
+ls
+cd git_practice/
+c
+ls
+ls -la
+cd .git/
+ls
+git status
+..
+c
+git status
+ls
+ls -la
+git status
+git init
+git status
+git add .
+git status
+git restore add.py
+v .
+git status
+v .
+cd gittest/
+cd git_practice/
+c
+man git
+yays man
+man git
+git commit -m "batman"
+git status
+git add .
+git commit -m "batman"
+git status
+git tree
+git --tree
+cd
+c
+pacs tree
+git tree
+cd git_practice/
+cd gittest/git_practice/
+c
+git tree
+git mktree
+v. 
+git push origin main
+git add .
+git status
+git push origin main
+git commit -m "second commit"
+git push origin main
+cd gittest/
+mkdir local-repo
+cd local-repo/
+..
+cd local-repo/
+c
+git status
+git init
+git status
+git add .
+git status
+git add .
+git commit -m "batman"
+git status
+git branch
+git remote add origin https://github.com/Kush-Goyal-25/local-repo.git
+git remote -v
+git push origin main
+git branch -m main
+git branch
+git push origin main
+git add .
+git commit -m "batman 2"
+git push origin main
+git branch
+git checkout -b new
+git switch master
+git switch -c master
+git branch
+v .
+lazygit
+v .
+cd local-repo/
+c
+git branch
+git switch new
+git switch -c test
+git branch
+git switch main
+git branch -d test.py
+git branch -d test
+git branch
+git branch -d master
+git branch
+cd Documents/gittest/local-repo/
+git status
+git branch
+bat git
+man git
+ls -la
+v .
+cd gittest/local-repo/
+git branch
+man git
+cd Documents/gittest/local-repo/
+git branch
+man git
+git branch
+git status
+git branch
+man git
+v .
+v .
+v .
+a
+ff
+cd local-repo/
+c
+git branch
+ls -la
+ls
+git branch
+man git
+v .
+cd local-repo/
+c
+git branch
+man git
+ls -la
+cd local-repo/
+c
+git switch 
+git branch
+git switch new
+git push origin main
+git push origin new
+v .
+v .
+v .
+cd local-repo/
+c
+cd local-repo/
+c
+v. 
+v .
+cd local-repo/
+c
+git switch new
+git switch m
+git switch main
+git status
+git switch new
+git add .
+git commit -m "new data"
+git push origin new
+git branch
+git diff main
+v .
+v .
+v .
+v .
+git branch
+git merge main
+git --graph
+git switch master
+git switch main
+git pull new
+git pull origin main
+git log --all --graph
+git branch
+git branch test
+git branch 
+git switch test
+git branch -d test
+git switch main
+git branch -d test
+git branch
+git switch new
+git add .
+git commit -m "new data"
+git log --all --graph
+git add .
+git commit -m "new data"
+git switch main
+git add .
+git commit -m "new data"
+git log --all --graph
+gitk
+git pull origin new
+git log --all --graph
+gitk
+git merge new
+git add .
+git commit -m "new data"
+git pull origin new
+git pull origin main
+git log --all --graph
+git fetch
+git log --all --graph
+git pull origin main
+git add .
+git commit -m "new data"
+git switch main
+git add .
+git commit -m "new data"
+git merge new
+pwd
+git log
+v .
+git reset b01ce6c51beb7dd3cb2e9b8b240559fbb0844248 
+v .
+git log
+git status
+git add .
+git status
+git stash
+git log
+git status
+git stash pop
+git status
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+ff
+curl -s http://www.gutenberg.org/cache/epub/2701/pg2701.txt
+ls
+curl -s http://www.gutenberg.org/cache/epub/2701/pg2701.txt | gunzip
+yays gunzip
+yays gzip
+curl -s http://www.gutenberg.org/cache/epub/2701/pg2701.txt | gzip
+curl -s http://www.gutenberg.org/cache/epub/2701/pg2701.txt | gzip -f
+v .
+v .
+v .
+v\
+v .
+v .
+v .
+ff
+cd local-repo/
+c
+git status
+git config --global --list<\n>
+git config --global user.name "Kush-Goyal-25"
+git config --global --list<\n>
+git push origin main
+v .
+v .
+..
+ls
+cd DSA/
+v .
+..
+ls
+cd Algorithms/
+v .
+..
+cd worldbanc/
+v .
+..
+mkdir neetcode
+cd neetcode/
+cs
+ls
+cat valid_anagram.cpp
+cd
+cd .config/qtile/
+v .
+cd .config/qtile/
+..
+cd .config/qtile/
+dc
+cd
+c
+cd .config/qtile/
+..
+v .
+..
+ls
+yays
+mkdir euler
+pacu
+cd CSES/
+c
+v .
+v .
+rg
+ripgrep --version
+rg --version
+v .
+stty -ixon
+v .
+v .
+git add .
+ls
+: TmuxNavigateRight
+clear
+v .
+git add .
+git commit -m "changed telescope keymaps and other stuff"
+git push origin main
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+git push origin main
+git pull origin main
+git push origin main
+v .
+v .
+ff
+v .
+shutdown
+shutdown -c
+v .
+git pull origin main
+git config pull.rebase true
+git pull origin main
+git add .
+git commit -m "changed telescope keymaps and other stuff"
+git push origin main
+v .
+cd
+c
+cd
+c
+systemctl --user restart pipewire pipewire-pulse wireplumber<\n>
+v .
+pacu
+ls
+cr pemutation.cpp
+cr permutation.cpp
+v .
+shutdown -c
+a
+ff
+ls
+go run main.go
+v .
+v .
+yays sioyek
+pacu
+sudo kanata -c
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+cd .config/qtile/
+v .
+a
+kanata --version
+cd
+sudo kanata -c ~/.config/kanata/config.kbd
+v .
+sudo kanata -c ~/.config/kanata/config.kbd
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+v .
+w
+v 
+je
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+c
+v .
+v .
+ew
+a
+sudo kanata -c ~/.config/kanata/config.kbd 
+cd
+c
+pacu
+ls
+cd
+ls
+cd .config/qtile/
+git status
+..
+cd nvim/
+git status
+git add .
+git commit -m "changed telescope keymaps and other stuff"
+git push origin main
+v .
+v .
+c
+ls
+v .
+c
+-
+neofetch
+ls
+neofetch
+cd Documents/gittest/local-repo/
+ls
+neofetch
+c
+git branch
+cd local-repo/
+git branch
+git switch new
+git branch switch new
+git branch
+git switch new
+git add .
+git commit -m "added test.py"
+git switch new
+git branch
+git branch -d switch
+git branch 
+git switch main
+cd D*
+cd Documents/gittest/local-repo/
+cd Documents/gittest/
+ls
+ls
+cat main.go
+ls
+v starship.toml
+v .
+ls
+git status
+v .
+git add .
+git commit -m "changed lazy.lua"
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+git push origin main
+ls
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+v .
+ls
+v .
+ls
+v\
+v .
+ls
+cd Documents/gittest/
+v .
+git branch 
+git status
+ls
+v .
+w
+ls
+cd Documents/gittest/
+v .
+we
+ls
+v .
+ls
+pwd 
+cat init.lua
+git add .
+git status
+ls
+go run main.go
+v .
+v .
+git status
+v. 
+v .
+ls
+v .
+git branch 
+cd local-repo/
+c
+v .
+v .
+git add .
+neofetch
+date now
+date humanize
+date
+time
+date now
+v .
+man git
+yays tealdeer
+tlds git
+tealdeer git
+which tldr
+tldr git
+tldr chmod
+tldr --update
+tldr git
+tldr vim
+man tldr
+man vim
+vim --remote
+nvim --remote
+v .
+v .
+shutdown -c
+shutdown 
+shutdown -c
+shutdown
+shutdown -c
+poweroff
+v .
+we
+neofetch
+ke
+v .
+cd lua/josean/plugins/
+ls
+cat lsp
+cat ufo
+cat ufo.lua
+ls
+git status
+cd lua/josean/plugins/
+cat ufo.lua
+git status
+git branch 
+git switch -c test
+git branch 
+git switch main
+git pull origin main
+git branch -d test
+git branch 
+v starship.toml
+v .
+v .
+cd
+c
+qtile start
+shutdown now
+v .
+opencode
+shutdown now
+v .
+shutdown now
+git branch 
+git switch main
+cd local-repo/
+git switch test
+git branch 
+git switch new
+git switch main
+v .
+qtile check
+qtile start
+yays rate-mirrors
+cd
+rate-mirrors --protocol https arch | sudo tee /etc/pacman.d/mirrorlist<\n>
+pacu
+v .
+ratemirrors
+v .
+picom
+yays picom
+c
+cd .config/picom/picom.conf
+v .config/picom/picom.conf
+cd .config/
+mkdir picom
+cd picom/
+v picom.conf
+cd
+c
+picom
+clear
+..
+v .
+picom
+killall picocom
+killall picom
+sudo pacman -R picom
+ls
+v .
+v .
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+git pull origin main
+git add .
+git commit -m "changed lazy.lua"
+git pull origin main
+git branch 
+git pull origin main
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+git status
+v  starship.toml
+git status
+git add .
+git commit -m "changed lazy.lua"
+git pull origin main
+git remote add origin https://github.com/Kush-Goyal-25/nvim.git
+v  starship.toml
+git status
+git tree
+mktree
+git mktree
+help git tree
+git log --graph --oneline --decorate --all<\n>
+v .
+git status
+git add .
+git commit -m "changed lazy.lua"
+v .
+..
+ls
+find golang
+find -iname "golang"
+find . "golang"
+shutdown now
+ls
+v .
+cd
+c
+pacu
+git add .
+git commit -m "changed lazy.lua"
+git pull origin main
+v .
+git add .
+git commit -m "changed lazy.lua"
+git pull origin main
+v .
+pau
+pacu
+shutdown now
+cd
+c
+python --version
+cd
+c
+python 
+cd Documents/
+mkdir AI
+cd AI/
+c
+curl -LsSf https://astral.sh/uv/install.sh | sh
+pipx install uv
+yays pipx
+python -m pip install --user uv
+yays pip
+yay -S uv-bin
+uv --versin
+uv --version
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv --version
+$env.PATH = ($env.PATH | append $"($env.HOME)/.cargo/bin")
+uv --version
+v .
+v .
+setup-uv
+v .
+python --version
+uv init --python 3.14.2
+uv add fastapi uvicorn
+v .
+python --version
+conda
+uv
+uv --color
+uv --help
+-h uv
+uv -h
+v .
+git init
+git add .
+uv
+uv -v
+uv --tree
+uv --tree --preview
+mkdir Introduction
+cd Introduction/
+uv init --python 3.14.2
+uv tools
+uv tool
+cd Introduction/
+c
+python main.py
+uv create
+uv init --python 3.14.2
+uv list
+uv pip list
+uv create
+v .
+python main.py
+cdc
+c
+cd
+c
+ping google.com
+..
+uv init Introduction/
+cd Introduction/
+uv add fastapi uvicorn python-dotenv
+uv sync
+uv run main.py
+uv -V
+uv init Introduction/
+python --version
+uv venv --python 3.14.2<\n>
+overlay use .venv/bin/activate.nu<\n>
+git init
+git add .
+git commit -m "batman"
+cdc
+cd
+c
+ping facebook.com
+help git
+man git
+tldr git
+git status
+git add .
+git status
+neofetch
+v .
+v .
+tmux session ls
+v .
+neofetch
+v .
+uv run main.py
+cd Introduction/
+uv run main.py
+overlay use .venv/bin/activate.nu<\n>
+uv run main.py
+uv init Introduction/
+python main.py
+uv run main.py
+q
+cd Introduction/
+ls
+mkdir Introduction
+uv init Introduction/
+uv venv --python 3.14.2<\n>
+cd Introduction/
+uv venv --python 3.14.2<\n>
+overlay use .venv/bin/activate.nu<\n>
+uv list
+..
+uv cache clean
+cd Introduction/
+uv list
+..
+cd Introduction/
+v .
+..
+v .
+uv status
+uv cache clean
+cd Introduction/
+overlay use .venv/bin/activate.nu<\n>
+..
+cd Introduction/
+cd Introduction/
+..
+v .
+git status
+git add .
+git commit -m "batman"
+cd Introduction/
+c
+v .
+uv run main.py
+git status
+git add .
+git commit -m "batman"
+git init
+git add .
+git status
+git add .
+git commit -m "batman"
+git status
+git add .
+git init
+git commit -m "batman"
+nel
+neofetch
+python --version
+git add .
+git status
+v .
+..
+v .
+..
+mv Introduction/ Pydantic/
+ls
+cd Pydantic/
+uv sync
+..
+uv init Pydantic/
+cd Pydantic/
+cd Pydantic/
+uv run main.py
+.venv --active
+uv --active
+cd Pydantic/
+uv run main.py
+..
+mv AI/ Agentic_AI/
+ls
+cd Agentic_AI/
+v .
+q
+ls
+git status
+git add .
+git commit -m "batman"
+cd Pydantic/
+..
+git remote add origin https://github.com/Kush-Goyal-25/Agentic_AI.git
+git branch -M main
+git push -u origin main
+ls
+pwd
+v .
+v .
+v .
+git status
+git add .
+cd Pydantic/
+v .
+git status
+git add .
+overlay use .venv/bin/activate.nu<\n>
+uv init
+uv run main.py
+overlay use .venv/bin/activate.nu<\n>
+uv run main.py
+ls
+uv init
+uv sync
+cd Pydantic/
+c
+uv run main.py
+..
+overlay use .venv/bin/activate.nu<\n>
+cd Pydantic/
+uv run main.py
+uv init
+cd Pydantic/
+overlay use .venv/bin/activate.nu<\n>
+uv run main.py
+v .
+uv add -r requirements.txt
+uv add --dev -r requirements-dev.txt<\n>
+uv pip install -r requirements.txt
+uv pip install -r requirements.txt && uv lock
+uv pip install -r requirements.txt; uv lock
+pip --version
+uv pip install requests
+uv pip install -r requirements.txt
+pip install -r requirements.txt
+uv pipx install -r requirements.txt
+pipx
+uv pip install -R requirements.txt
+uv pip install --requirements requirements.txt
+sudo pacman -S python-pip<\n>
+pip --version
+uv pipx install -r requirements.txt
+uv pip install --requirements requirements.txt
+uv run main.py
+uv pip install -R requirements.txt
+--help
+uv init --bare<\n>
+uv add -r requirements.txt<\n>
+uv add requirements.txt<\n>
+uv list
+uv pip list
+uv run main.py
+ls
+cat requirements.txt
+uv add requirements.txt<\n>
+uv add -r requirements.txt<\n>
+uv pip install -r requirements.txt
+uv pip install requirements.txt
+v .
+uv pip list | grep pydantic
+ls
+ls -la
+cd .venv/
+ls
+overlay use .venv/bin/activate.nu<\n>
+..
+overlay use .venv/bin/activate.nu<\n>
+uv pip install requirements.txt
+uv run main.py
+uv deactivate
+deactivate
+overlay use .venv/bin/activate.nu<\n>
+uv list
+uv pip install requirements.txt
+v .
+ls
+..
+ls
+source .venv/bin/activate.nu
+which python
+python -c "import sys; print(sys.executable)"
+overlay hide activate
+overlay use .venv/bin/activate.nu -r
+uv run main.py
+v .
+cd Pydantic/
+ls
+pip install pydantic
+pipx install pydantic
+uv install pydantic
+uv add pydantic
+v .
+cd
+c
+pacu
+uv run main.py
+uv pip install pydantic
+uv sync
+uv run main.py
+ls ~/Documents/Agentic_AI/Pydantic/.venv/bin/python
+v .
+shutdown now
+cd Pydantic/
+cd Pydantic/
+c
+overlay use .venv/bin/activate.nu -r
+git add .
+..
+git add .
+git status
+cd Pydantic/
+c
+v .
+cd Pydantic/
+v.
+cd Pydantic/
+overlay use .venv/bin/activate.nu -r
+git sl
+git status
+git commit -m "batman"
+uv run main.py
+ls
+neofetch
+git status
+git push -u origin main
+v .
+v .
+v .
+cd Pydantic/
+overlay use .venv/bin/activate.nu -r
+git status
+cd
+c
+pacu
+ls
+neofetch
+sudo pacman -R kitty
+cr permutation.cpp
+v .
+v .
+btop
+v .
+ls
+cr permutation.cpp
+v .
+v .
+cd Pydantic/
+o
+overlay use .venv/bin/activate.nu -r
+uv list
+man uv
+tldr uv
+cd
+c
+yays vlc
+cd
+sudo pacman -R vlc
+yays mpv
+mkdir Coding
+cd Coding/
+c
+python list.py
+uv init
+uv venv --python 3.14.2<\n>
+uv activate<\n>
+uv venv
+overlay use .venv/bin/activate.nu<\n>
+uv run list.py
+k
+uv run list.py
+k
+uv run list.py
+cd function/
+uv run first.py
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+v .
+v .
+v .
+sudo kanata -c ~/.config/kanata/config.kbd 
+v .
+hello 
+v .
+v .
+cd function/
+v .
+overlay use .venv/bin/activate.nu<\n>
+uv run first.py
+uv run lambda.py
+v .
+sudo kanata -c ~/.config/kanata/config.kbd 
+c
+btop
+uv run lambda.py
+cd
+c
+man mvp
+man mpv
+cd .config/mpv/
+ls
+v .
+uv run lambda.py
+cd
+c
+pacu
+git status
+git add .
+git status
+..
+git status
+git add .
+git commit -m "batman"
+cd function/
+ls
+git status
+v .
+..
+mkdir pakages
+cd pakages/
+..
+cd pakages/
+git status
+..
+git add .
+cd pakages/
+git status
+git add .
+uv run main.py
+..
+overlay use .venv/bin/activate.nu<\n>
+ls
+uv add numpy
+cd pakages/
+ls
+uv run main.py
+..
+touch requirements.txt
+v .
+v .
+uv add -r requirements.txt<\n>
+uv add requirements.txt
+uv add -R requirements.txt
+uv add -r requirements.txt
+uv add -r requirements.txt --help
+--help
+-h
+-h uv
+man uv
+cdc
+cd
+c
+sudo pacman -Syu python python-pip<\n>
+python --version<\n>pip --version<\n>
+uv add -r requirements.txt
+pip install -r requirements.txt
+pipx install -r requirements.txt
+pipx install requirements.txt
+uv run main.py
+cd pakages/
+uv run main.py
+..
+ls
+uv run main.py
+v .
+v .
+ls
+cd pakages/
+c
+ls
+uv run standard_lib.py
+ls
+uv run standard_lib.py
+ls
+uv run standard_lib.py
+ls
+cd test_dir/
+ls
+..
+ls
+uv run standard_lib.py
+ls
+uv run standard_lib.py
+git status
+git add .
+..
+git add .
+git commit -m "day 1"
+git status
+v .
+v .
+sudo kanata -c ~/.config/kanata/config.kbd 
+v .
+ls
+overlay use .venv/bin/activate.nu<\n>
+cd pakages/
+v .
+cd pakages/
+cr spiral_numbers.cpp
+v .
+cr spiral_numbers.cpp
+cd
+c
+ratemirrors
+e
+exit
+ratemirrors
+rate-mirrors --protocol https arch | sudo tee /etc/pacman.d/mirrorlist<\n>
+v /etc/pacman.d/mirrorlist
+v /etc/pacman.d/mirrorlist.pacnew
+v /etc/pacman.d/mirrorlist
+v /etc/pacman.d/
+sudo v /etc/pacman.d/
+sudo nvim /etc/pacman.d/
+rate-mirrors --protocol https arch | sudo tee /etc/pacman.d/mirrorlist<\n>
+v .
+cd Documents/CSES/
+v .
+ct spiral_numbers.cpp -c 3
+cd Documents/CSES/
+ct spiral_numbers.cpp -c 3
+cd
+c
+pacu
+sudo rm /var/lib/pacman/db.lck
+sudo rm /var/lib/pacman/
+sudo cat rm /var/lib/pacman/
+cd /var/lib/pacman/
+ls
+pacu
+sudo pacman -Sy
+sudo fuser /var/lib/pacman/
+ls
+v .
+v .
+v .
+cd
+c
+rate-mirrors --protocol https arch | sudo tee /etc/pacman.d/mirrorlist<\n>
+cr spiral_numbers.cpp
+cr spiral.cpp
+cd
+c
+cp ~/Downloads/cses_scrape.py ~/.local/bin/cses_scrape.py
+cp ~/Downloads/ct.nu ~/.config/nushell/ct.nu
+cp ~/Downloads/cses.nu ~/.config/nushell/cses.nu
+echo "\nsource ~/.config/nushell/cses.nu" | save --append ~/.config/nushell/config.nu
+source ~/.config/nushell/config.nu
+cses 1068 weird_algorithm.cpp
+cp ~/Downloads/cses.nu ~/.config/nushell/cses.nu
+"\nsource ~/.config/nushell/cses.nu" | save --append ~/.config/nushell/config.nu<\n>
+source ~/.config/nushell/config.nu
+cd Documents/CSES/
+cses 1068 weird_algorithm.cpp
+v .
+ls *.cpp
+v.
+v .
+cses 1068 weird_algorithm.cpp
+v .
+cd
+c
+cp ~/Downloads/cses.nu ~/.config/nushell/cses.nu
+source ~/.config/nushell/cses.nu
+v .
+nvim .
+cp ~/Downloads/cses.nu ~/.config/nushell/cses.nu
+source ~/.config/nushell/cses.nu
+v .
+e
+exit
+cd Documents/CSES/
+cses 1068 weird_algorithm.cpp
+cses 1083 missing_number.cpp
+cd
+c
+cd Documents/CSES/
+cses 1071 spiral_numbers.cpp
+cses 1071 spiral.cpp
+v .
+cses 1071 spiral.cpp
+v .
+cd
+c
+cp ~/Downloads/cses.nu ~/.config/nushell/cses.nu
+source ~/.config/nushell/cses.nu
+cd Documents/CSES/
+cses 1071 spiral.cpp
+cses 1071 spiral.cpp
+v .
+cd pakages/
+ls
+cd pakages/
+c
+//
+overlay use .venv/bin/activate.nu<\n>
+cd pakages/
+v .
+uv run standard_lib.py
+..
+mkdir file_operation
+cd file_operation/
+v .
+..
+cd file_operation/
+uv run file.py
+ls
+ls -la
+v .
+v .
+uv run filepath.py
+ls
+cd pakages/
+cd packages/
+ls
+..
+rm packages/
+uv run filepath.py
+ls
+uv run filepath.py
+..
+cd file_operation/
+uv run exception_handling.py
+git status
+git add .
+neofetch
+v .
+..
+mkdir oops
+cd oops/
+..
+v  oops/
+uv run oops1.py
+v  oops/
+uv run oops1.py
+hello 
+uv run oops1.py
+uv run instance.py
+..
+git add .
+cd oops/
+git add .
+uv run inheritance.py
+yazi
+git status
+git add .
+git status
+ls
+v .
+git status
+git add .
+git commit -m "removed <leader>nn keymap"
+git push -u origin main
+v .
+uv run polymorphism.py
+v .
+git add .
+git status
+c
+v .
+git status
+git add .
+git commit -m "removed <leader>nn keymap"
+git push -u origin main
+v .
+go run main.go
+go run test.go
+golang tree
+..
+golang tree
+golang/ tree
+dlv --version
+go run test.go
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+v .
+v .
+sudo kanata -c ~/.config/kanata/config.kbd 
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+v.
+v .
+v .
+v .
+go run test.go
+v .
+go run main.go
+v .
+cd Documents/golang/
+v  starship.toml
+go run main.go
+cd
+c
+go run main.go
+pacu
+go run main.go
+cd
+c
+sudo kanata -c ~/.config/kanata/config.kbd 
+go run main.go
+v .
+go run main.go
+a
+go run main.go
+v .
+go run main.go
+cwd
+pwd
+go run main.go
+v /
+go run main.go
+v .
+v .
+v .
+shutdown now
+sudo kanata -c ~/.config/kanata/config.kbd 
+ls
+go run main.go
+ls
+mkdir http
+cd http
+v .
+yays caddy
+caddy file-server
+caddy file-server --listen :8080
+caddy file-server --listen :80
+node tell.js
+node -v
+node tell.js
+caddy file-server --listen :8080
+caddy file-server --listen :80
+node tell.js
+cd
+c
+sudo pacman -S xdotool  
+htop
+sudo kanata -c ~/.config/kanata/config.kbd 
+logout now
+logout
+a
+flameshot
+opencode
+v .
+v .
+ls
+go run main.go
+v .
+node tell.js
+cd
+sudo kanata -c ~/.config/kanata/config.kbd 
+v .
+node tell.js
+v .
+v .
+caddy file-server --listen :8080
+v .
+a
+v .
+sudo kanata -c ~/.config/kanata/config.kbd 
+go run main.go
+cd
+c
+xrandr --output Virtual-1 --mode 2560x1140 &
+xrandr --output Virtual-1 --mode 2560x1140<\n>
+cvt 2560 1140 60<\n>
+xrandr --addmode Virtual-1 "2560x1140_60.00"<\n>
+xrandr --addmode Virtual-2 "2560x1140_60.00"<\n>
+xrandr --newmode "2560x1140_60.00" 243.75 2560 2728 3000 3440 1140 1143 1153 1183 -hsync +vsync<\n>
+v .
+xrandr --newmode "3840×2160" 243.75 2560 2728 3000 3440 1140 1143 1153 1183 -hsync +vsync<\n>
+ls
+a
+ls
+a
+ls
+neofetch
+a
+ls
+v .
+v .
+ls
+v .
+cd
+xrandr --output Virtual-1 --mode 1920x1080 &<\n>
+xrandr --output Virtual-1 --mode 1920x1080 <\n>
+v .
+a
+ls
+v .
+v .
+v .
+cd
+c
+xrandr --output Virtual-1 --mode 1920x1080 
+cd
+c
+pacu
+cd
+sudo kanata -c ~/.config/kanata/config.kbd 
+sudo pacman -R vlc
+v .
+go run main.go
+git add .
+git commit -m "added neocodeium ai completion"
+git push -u origin main
+v .
+v .
+cd
+c
+xrandr --newmode "3840×2160" 243.75 2560 2728 3000 3440 1140 1143 1153 1183 -hsync +vsync
+v .
+v .
+pacu
+sudo pacman -Rns ghostty ghostty-terminfo-git
+yay -S ghostty-git
+ls
+ghostty
+yays ghostty
+pacu
+GTK_BACKEND=x11 ghostty
+GDK_BACKEND=x11 LIBGL_ALWAYS_SOFTWARE=1 ghostty
+v .
+sudo pacman -Rns ghostty ghostty-terminfo-git
+sudo pacman -Rns ghostty 
+c
+yays ghostty
+yays ghostty-git
+sudo pacman -Rns ghostty ghostty-terminfo-git
+sudo pacman -Rn ghostty-terminfo-git
+sudo pacman -Rns ghostty-terminfo-git
+sudo pacman -Rns ghostty-git
+sudo pacman -R ghostty-git
+ghostty
+sudo pacman -S ghostty
+gho
+ghostty
+sudo pacman -S gtk4 libadwaita
+LIBGL_ALWAYS_SOFTWARE=1 ghostty
+glxinfo | grep -E "renderer|vendor|version"
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=softpipe ghostty
+sudo pacman -S open-vm-tools mesa<\n>sudo systemctl enable --now vmtoolsd
+sudo pacman -S virtualbox-guest-utils mesa<\n>sudo systemctl enable --now vboxservice
+sudo pacman -S open-vm-tools mesa xf86-video-vmware<\n>sudo systemctl enable --now vmtoolsd
+sudo pacman -S virtualbox-guest-utils mesa<\n>sudo systemctl enable --now vboxservice
+glxinfo | grep renderer
+ghostty
+MESA_GL_VERSION_OVERRIDE=4.3 ghostty
+ghostty
+MESA_GL_VERSION_OVERRIDE=4.3 ghostty
+ghostty
+MESA_GL_VERSION_OVERRIDE=4.3 MESA_GLSL_VERSION_OVERRIDE=430 ghostty
+ghostty
+MESA_GL_VERSION_OVERRIDE=4.3COMPAT ghostty
+ghostty
+MESA_GL_VERSION_OVERRIDE=4.3 MESA_GLSL_VERSION_OVERRIDE=430 SVGA_VGPU10=1 ghostty
+LIBGL_ALWAYS_SOFTWARE=1 ghostty<\n>
+sudo pacman -Syu mesa<\n>
+ghostty
+sudo pacman -R ghostty
+sudo pacman -S ghostty
+pacu
+ghostty
+..
+c
+ghostty
+sudo pacman -S virtualbox-guest-utils<\n>sudo systemctl enable --now vboxservice
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe ghostty
+echo $XDG_SESSION_TYPE
+$env.XDG_SESSION_TYPE
+^echo $env.DISPLAY
+^loginctl show-session (^loginctl | lines | where ($it | str contains "tty") | first | split row " " | where ($it | str contains ".") | first) -p Type
+^loginctl show-session self -p Type
+^ghostty 2>&1
+^ghostty
+pacman -S virtualbox-guest-utils
+sudo pacman -S virtualbox-guest-utils
+ghostty
+shutdown now
+sudo pacman -S virtualbox-guest-utils
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe ghostty
+ls
+LIBGL_ALWAYS_SOFTWARE=1 ghostty
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=softpipe ghostty
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe ghostty
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe LP_DEBUG=no_cache ghostty
+rm -rf ~/.cache/mesa_shader_cache<\n>rm -rf ~/.cache/mesa_shader_cache_sf
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe MESA_GLSL_VERSION_OVERRIDE=430 MESA_GL_VERSION_OVERRIDE=4.3 ghostty
+glxinfo -B 2>/dev/null | head -20
+glxinfo -B | head -20
+mks.gl.allowBlacklistedDrivers = TRUE
+pacman -Q open-vm-tools xf86-video-vmware mesa
+echo $env.WAYLAND_DISPLAY<\n>echo $env.DISPLAY
+glxinfo | grep "OpenGL renderer"<\n>glxinfo | grep "direct rendering"
+ghostty 2>&1
+ghostty out+err> /tmp/ghostty.log; cat /tmp/ghostty.log
+LIBGL_ALWAYS_SOFTWARE=1 ghostty
+$env.LIBGL_ALWAYS_SOFTWARE = "1"
+ghostty
+LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=softpipe ghostty
