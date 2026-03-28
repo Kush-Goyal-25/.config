@@ -35,7 +35,11 @@ from libqtile.lazy import lazy
 
 # Make sure 'qtile-extras' is installed or this config will not work.
 from qtile_extras import widget
-from qtile_extras.widget.decorations import BorderDecoration
+from qtile_extras.widget.decorations import (
+    BorderDecoration,
+    PowerLineDecoration,
+    RectDecoration,
+)
 
 # from qtile_extras.widget import StatusNotifier
 import colors
@@ -43,7 +47,7 @@ import colors
 mod = "mod4"  # Sets mod key to SUPER/WINDOWS
 myTerm = "ghostty"  # My terminal of choice
 myBrowser = "zen-browser"  # My browser of choice
-myEmacs = "nvim"  # The space at the end is IMPORTANT!
+myNeovim = "nvim"  # The space at the end is IMPORTANT!
 myFiles = "nautilus"  # The space at the end is IMPORTANT!
 myBrowser1 = "firefox"
 
@@ -78,6 +82,33 @@ def maximize_by_switching_layout(qtile):
         qtile.current_group.layout = "monadtall"
 
 
+# Switch groups/layouts even when Firefox or Zen is fullscreen
+@lazy.function
+def switch_layout_from_fullscreen(qtile, direction="next"):
+    """
+    Cycle Qtile layouts even when Firefox/Zen browser is in fullscreen.
+    Exits fullscreen first, then switches.
+    """
+    win = qtile.current_window
+    browser_classes = {
+        "firefox",
+        "zen",
+        "zen-browser",
+        "chromium",
+        "google-chrome",
+        "brave-browser",
+    }
+    if win is not None:
+        wm_class = (win.get_wm_class() or [""])[0].lower()
+        if wm_class in browser_classes and win.fullscreen:
+            win.toggle_fullscreen()
+
+    if direction == "next":
+        qtile.current_group.cmd_next_layout()
+    elif direction == "prev":
+        qtile.current_group.cmd_prev_layout()
+
+
 @hook.subscribe.startup_complete
 def hide_bars_on_startup():
     """Hide all top bars when Qtile starts"""
@@ -106,16 +137,11 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc="Take a screenshot"),
     # Switch between windows
-    # Some layouts like 'monadtall' only need to use j/k to move
-    # through the stack, but other layouts like 'columns' will
-    # require all four directions h/j/k/l to move around.
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
     Key(
         [mod, "shift"],
         "h",
@@ -144,10 +170,6 @@ keys = [
         lazy.layout.section_up().when(layout=["treetab"]),
         desc="Move window downup/move up a section in treetab",
     ),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
     Key(
         [mod, "shift"],
         "space",
@@ -161,9 +183,6 @@ keys = [
         add_treetab_section,
         desc="Prompt to add new section in treetab",
     ),
-    # Grow/shrink windows left/right.
-    # This is mainly for the 'monadtall' and 'monadwide' layouts
-    # although it does also work in the 'bsp' and 'columns' layouts.
     Key(
         [mod],
         "equal",
@@ -178,8 +197,6 @@ keys = [
         lazy.layout.shrink().when(layout=["monadtall", "monadwide"]),
         desc="Grow window to the left",
     ),
-    # Grow windows up, down, left, right.  Only works in certain layouts.
-    # Works in 'bsp' and 'columns' layout.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key(
         [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
@@ -205,41 +222,54 @@ keys = [
     # Switch focus of monitors
     Key([mod], "period", lazy.next_screen(), desc="Move focus to next monitor"),
     Key([mod], "comma", lazy.prev_screen(), desc="Move focus to prev monitor"),
+    # Switch layouts even when Firefox/Zen is in fullscreen
+    Key(
+        [mod],
+        "n",
+        switch_layout_from_fullscreen(direction="next"),
+        desc="Next layout (exits browser fullscreen if needed)",
+    ),
+    Key(
+        [mod],
+        "p",
+        switch_layout_from_fullscreen(direction="prev"),
+        desc="Prev layout (exits browser fullscreen if needed)",
+    ),
     # Emacs programs launched using the key chord CTRL+e followed by 'key'
     KeyChord(
         [mod],
         "e",
         [
-            Key([], "e", lazy.spawn(myEmacs), desc="Emacs Dashboard"),
+            Key([], "e", lazy.spawn(myNeovim), desc="Emacs Dashboard"),
             Key(
                 [],
                 "a",
                 lazy.spawn(
-                    myEmacs + "--eval '(emms-play-directory-tree \"~/Music/\")'"
+                    myNeovim + "--eval '(emms-play-directory-tree \"~/Music/\")'"
                 ),
                 desc="Emacs EMMS",
             ),
             Key(
                 [],
                 "b",
-                lazy.spawn(myEmacs + "--eval '(ibuffer)'"),
+                lazy.spawn(myNeovim + "--eval '(ibuffer)'"),
                 desc="Emacs Ibuffer",
             ),
             Key(
                 [],
                 "d",
-                lazy.spawn(myEmacs + "--eval '(dired nil)'"),
+                lazy.spawn(myNeovim + "--eval '(dired nil)'"),
                 desc="Emacs Dired",
             ),
-            Key([], "i", lazy.spawn(myEmacs + "--eval '(erc)'"), desc="Emacs ERC"),
+            Key([], "i", lazy.spawn(myNeovim + "--eval '(erc)'"), desc="Emacs ERC"),
             Key(
-                [], "s", lazy.spawn(myEmacs + "--eval '(eshell)'"), desc="Emacs Eshell"
+                [], "s", lazy.spawn(myNeovim + "--eval '(eshell)'"), desc="Emacs Eshell"
             ),
-            Key([], "v", lazy.spawn(myEmacs + "--eval '(vterm)'"), desc="Emacs Vterm"),
+            Key([], "v", lazy.spawn(myNeovim + "--eval '(vterm)'"), desc="Emacs Vterm"),
             Key(
                 [],
                 "w",
-                lazy.spawn(myEmacs + "--eval '(eww \"distro.tube\")'"),
+                lazy.spawn(myNeovim + "--eval '(eww \"distro.tube\")'"),
                 desc="Emacs EWW",
             ),
             Key(
@@ -287,7 +317,6 @@ groups = [
         matches=[
             Match(wm_class="firefox"),
             Match(wm_class="zen"),
-            # Match(wm_class="zen-browser"),
         ],
     ),
     Group(
@@ -318,43 +347,13 @@ groups = [
 ]
 
 
-group_names = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-]
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_labels = ["󰖟", "󰨊", "󰈙", "󰏬", "󰃰", "󰙯", "󰎙", "󰕧", "󰊢"]
+# Nerd Font icons: browser, terminal, docs, design, calendar, chat, music, video, git
+# Fallback plain labels if Nerd Fonts not installed:
+# group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-group_labels = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-]
-# group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
-# group_labels = ["", "", "", "", "", "", "", "", "",]
-
-group_layouts = [
-    "max",
-    "max",
-    "max",
-    "max",
-    "max",
-    "max",
-    "max",
-    "max",
-    "max",
-]
+group_layouts = ["max"] * 9
 
 for i in range(len(group_names)):
     groups.append(
@@ -368,14 +367,12 @@ for i in range(len(group_names)):
 for i in groups:
     keys.extend(
         [
-            # mod1 + letter of group = switch to group
             Key(
                 [mod],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
-            # mod1 + shift + letter of group = move focused window to group
             Key(
                 [mod, "shift"],
                 i.name,
@@ -387,217 +384,280 @@ for i in groups:
 
 colors = colors.DoomOne
 
+# ── Palette shortcuts for the bar ─────────────────────────────────────────────
+BG = colors[0][0]  # #282c34  deep charcoal
+FG = colors[1][0]  # #bbc2cf  soft silver
+DARK = colors[2][0]  # #1c1f24  near-black
+RED = colors[3][0]  # #ff6c6b
+GREEN = colors[4][0]  # #98be65
+ORANGE = colors[5][0]  # #da8548
+BLUE = colors[6][0]  # #51afef
+MAGENTA = colors[7][0]  # #c678dd
+CYAN = colors[8][0]  # #46d9ff
+
+# ── Semi-transparent panel background ─────────────────────────────────────────
+PANEL_BG = "#1c1f24ee"  # slightly transparent near-black
+PILL_BG = "#23272eee"  # pill widget background
+
 layout_theme = {
     "border_width": 2,
-    "margin": 4,
-    "border_focus": colors[8],
-    "border_normal": colors[0],
+    "margin": 6,
+    "border_focus": CYAN,
+    "border_normal": DARK,
 }
 
 layouts = [
-    # layout.Bsp(**layout_theme),
-    # layout.Floating(**layout_theme)
-    # layout.RatioTile(**layout_theme),
-    # layout.VerticalTile(**layout_theme),
-    # layout.Matrix(**layout_theme),
     layout.MonadTall(**layout_theme),
-    # layout.MonadWide(**layout_theme),
-    # layout.Tile(
-    #     shift_windows=True,
-    #     border_width=0,
-    #     margin=0,
-    #     ratio=0.335,
-    # ),
-    layout.Max(
-        border_width=0,
-        margin=0,
-    ),
-    # layout.Stack(**layout_theme, num_stacks=2),
-    # layout.Columns(**layout_theme),
+    layout.Max(border_width=0, margin=0),
     layout.TreeTab(
-        font="Ubuntu Bold",
+        font="JetBrainsMono Nerd Font Bold",
         fontsize=11,
         border_width=0,
-        bg_color=colors[0],
-        active_bg=colors[8],
-        active_fg=colors[2],
-        inactive_bg=colors[1],
-        inactive_fg=colors[0],
+        bg_color=BG,
+        active_bg=CYAN,
+        active_fg=DARK,
+        inactive_bg=DARK,
+        inactive_fg=FG,
         padding_left=8,
         padding_x=8,
         padding_y=6,
         sections=["ONE", "TWO", "THREE"],
         section_fontsize=10,
-        section_fg=colors[7],
+        section_fg=MAGENTA,
         section_top=15,
         section_bottom=15,
         level_shift=8,
         vspace=3,
         panel_width=240,
     ),
-    # layout.Zoomy(**layout_theme),
 ]
 
-widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=0, background=colors[0])
-
+widget_defaults = dict(
+    font="JetBrainsMono Nerd Font",
+    fontsize=11,
+    padding=0,
+    background=PANEL_BG,
+)
 extension_defaults = widget_defaults.copy()
 
 
+# ── Helper: slim pill RectDecoration ──────────────────────────────────────────
+# padding_y is fixed for ALL pills so every badge renders at the same height.
+def pill(color, radius=6, padding=6):
+    return [
+        RectDecoration(
+            colour=color,
+            radius=radius,
+            filled=True,
+            padding_y=4,
+            padding_x=padding,
+            group=True,
+        )
+    ]
+
+
+# ── Helper: thin underline accent ─────────────────────────────────────────────
+def underline(color):
+    return [BorderDecoration(colour=color, border_width=[0, 0, 2, 0])]
+
+
+# ── Helper: dot separator ─────────────────────────────────────────────────────
+def sep(padding=6):
+    return widget.TextBox(
+        text="·",
+        font="JetBrainsMono Nerd Font",
+        fontsize=14,
+        foreground="#3d4251",
+        background=PANEL_BG,
+        padding=padding,
+    )
+
+
+def spacer(n=4):
+    return widget.Spacer(length=n, background=PANEL_BG)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BAR WIDGET LIST  — slim, size=26, no margin
+# ══════════════════════════════════════════════════════════════════════════════
 def init_widgets_list():
     widgets_list = [
-        widget.Image(
-            filename="~/.config/qtile/icons/logo.png",
-            scale="False",
+        # ── Logo ──────────────────────────────────────────────────────────────
+        spacer(5),
+        widget.TextBox(
+            text=" ",
+            font="JetBrainsMono Nerd Font Bold",
+            fontsize=12,
+            foreground=DARK,
+            background=PANEL_BG,
+            padding=0,
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm)},
+            decorations=pill(CYAN, radius=7, padding=7),
         ),
-        widget.Prompt(font="Ubuntu Mono", fontsize=14, foreground=colors[1]),
+        spacer(8),
+        # ── Groups ────────────────────────────────────────────────────────────
         widget.GroupBox(
-            fontsize=11,
-            margin_y=5,
-            margin_x=5,
-            padding_y=0,
-            padding_x=1,
-            borderwidth=3,
-            active=colors[8],
-            inactive=colors[1],
-            rounded=False,
-            highlight_color=colors[2],
-            highlight_method="line",
-            this_current_screen_border=colors[7],
-            this_screen_border=colors[4],
-            other_current_screen_border=colors[7],
-            other_screen_border=colors[4],
+            font="JetBrainsMono Nerd Font Bold",
+            fontsize=12,
+            margin_y=3,
+            margin_x=1,
+            padding_y=3,
+            padding_x=6,
+            borderwidth=0,
+            active=CYAN,
+            inactive="#3d4251",
+            rounded=True,
+            highlight_color=[PANEL_BG, DARK],
+            highlight_method="block",
+            this_current_screen_border="#46d9ff1a",
+            this_screen_border="#51afef11",
+            other_current_screen_border="#c678dd11",
+            other_screen_border=DARK,
+            urgent_border=RED,
+            background=PANEL_BG,
+            foreground=FG,
+            disable_drag=True,
         ),
-        widget.TextBox(
-            text="|", font="Ubuntu Mono", foreground=colors[1], padding=2, fontsize=14
-        ),
+        sep(),
+        # ── Layout ────────────────────────────────────────────────────────────
         widget.CurrentLayoutIcon(
-            # custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-            foreground=colors[1],
-            padding=4,
-            scale=0.6,
+            foreground=MAGENTA,
+            background=PANEL_BG,
+            padding=2,
+            scale=0.5,
         ),
-        widget.CurrentLayout(foreground=colors[1], padding=5),
-        widget.TextBox(
-            text="|", font="Ubuntu Mono", foreground=colors[1], padding=2, fontsize=14
+        widget.CurrentLayout(
+            foreground=MAGENTA,
+            background=PANEL_BG,
+            padding=3,
+            font="JetBrainsMono Nerd Font Bold",
+            fontsize=11,
+            decorations=underline(MAGENTA),
         ),
-        widget.WindowName(foreground=colors[6], max_chars=40),
+        sep(),
+        # ── Prompt + Window name ──────────────────────────────────────────────
+        widget.Prompt(
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            foreground=GREEN,
+            background=PANEL_BG,
+            padding=2,
+        ),
+        widget.WindowName(
+            foreground="#4b5263",
+            background=PANEL_BG,
+            max_chars=40,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            padding=2,
+            format="{state}{name}",
+        ),
+        # ── Flex spacer ───────────────────────────────────────────────────────
+        widget.Spacer(background=PANEL_BG),
+        # ── Kernel ────────────────────────────────────────────────────────────
         widget.GenPollText(
             update_interval=300,
             func=lambda: subprocess.check_output(
-                "printf $(uname -r)", shell=True, text=True
-            ),
-            foreground=colors[3],
-            fmt="❤  {}",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[3],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
+                "uname -r | cut -d'-' -f1", shell=True, text=True
+            ).strip(),
+            foreground=GREEN,
+            background=PANEL_BG,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            padding=4,
         ),
-        widget.Spacer(length=8),
+        # ── CPU ───────────────────────────────────────────────────────────────
         widget.CPU(
-            format="▓  Cpu: {load_percent}%",
-            foreground=colors[4],
-            decorations=[
-                BorderDecoration(
-                    colour=colors[4],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
+            format=" {load_percent:.0f}%",
+            foreground=ORANGE,
+            background=PANEL_BG,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            padding=4,
+            update_interval=2,
         ),
-        widget.Spacer(length=8),
+        # ── Memory ────────────────────────────────────────────────────────────
         widget.Memory(
-            foreground=colors[8],
+            foreground=BLUE,
+            background=PANEL_BG,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
-            format="{MemUsed: .0f}{mm}",
-            fmt="🖥  Mem: {} used",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[8],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
+            format="{MemUsed:.0f}{mm}",
+            measure_mem="G",
+            padding=4,
         ),
-        widget.Spacer(length=8),
-        widget.DF(
-            update_interval=60,
-            foreground=colors[5],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e df")},
-            partition="/",
-            # format = '[{p}] {uf}{m} ({r:.0f}%)',
-            format="{uf}{m} free",
-            fmt="🖴  Disk: {}",
-            visible_on_warn=False,
-            decorations=[
-                BorderDecoration(
-                    colour=colors[5],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
-        ),
-        widget.Spacer(length=8),
+        # ── Volume ────────────────────────────────────────────────────────────
         widget.Volume(
-            foreground=colors[7],
-            fmt="🕫  Vol: {}",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[7],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
+            foreground=MAGENTA,
+            background=PANEL_BG,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            fmt="{}",
+            padding=4,
         ),
-        widget.Spacer(length=8),
-        widget.KeyboardLayout(
-            foreground=colors[4],
-            fmt="⌨  Kbd: {}",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[4],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
-        ),
-        widget.Spacer(length=8),
+        # ── Clock ─────────────────────────────────────────────────────────────
         widget.Clock(
-            foreground=colors[8],
-            format="⏱  %a, %b %d - %I:%M %p",
-            decorations=[
-                BorderDecoration(
-                    colour=colors[8],
-                    border_width=[0, 0, 2, 0],
-                )
-            ],
+            foreground=CYAN,
+            background=PANEL_BG,
+            font="JetBrainsMono Nerd Font",
+            fontsize=11,
+            format="%H:%M  %a %d",
+            padding=4,
         ),
-        widget.Spacer(length=8),
-        widget.Systray(padding=3),
-        widget.Spacer(length=8),
+        spacer(6),
+        # ── Systray ───────────────────────────────────────────────────────────
+        widget.Systray(
+            background=PANEL_BG,
+            padding=4,
+            icon_size=14,
+        ),
+        spacer(6),
     ]
     return widgets_list
 
 
 def init_widgets_screen1():
-    widgets_screen1 = init_widgets_list()
-    return widgets_screen1
+    return init_widgets_list()
 
 
-# All other monitors' bars will display everything but widgets 22 (systray) and 23 (spacer).
 def init_widgets_screen2():
-    widgets_screen2 = init_widgets_list()
-    del widgets_screen2[22:24]
-    return widgets_screen2
-
-
-# For adding transparency to your bar, add (background="#00000000") to the "Screen" line(s)
-# For ex: Screen(top=bar.Bar(widgets=init_widgets_screen2(), background="#00000000", size=24)),
+    widgets = init_widgets_list()
+    # Remove systray (last two: systray + spacer)
+    del widgets[-2:]
+    return widgets
 
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26)),
-        Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26)),
-        Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26)),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen1(),
+                size=26,
+                background=PANEL_BG,
+                margin=0,
+                border_width=0,
+                opacity=1.0,
+            )
+        ),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen2(),
+                size=26,
+                background=PANEL_BG,
+                margin=0,
+                border_width=0,
+            )
+        ),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen2(),
+                size=26,
+                background=PANEL_BG,
+                margin=0,
+                border_width=0,
+            )
+        ),
     ]
 
 
@@ -659,43 +719,37 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus=colors[8],
+    border_focus=CYAN,
     border_width=2,
     float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="dialog"),  # dialog boxes
-        Match(wm_class="download"),  # downloads
-        Match(wm_class="error"),  # error msgs
-        Match(wm_class="file_progress"),  # file progress boxes
-        Match(wm_class="kdenlive"),  # kdenlive
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="notification"),  # notifications
-        Match(wm_class="pinentry-gtk-2"),  # GPG key password entry
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(wm_class="toolbar"),  # toolbars
-        Match(wm_class="Yad"),  # yad boxes
-        Match(title="branchdialog"),  # gitk
-        Match(title="Confirmation"),  # tastyworks exit box
-        Match(title="Qalculate!"),  # qalculate-gtk
-        Match(title="pinentry"),  # GPG key password entry
-        Match(title="tastycharts"),  # tastytrade pop-out charts
-        Match(title="tastytrade"),  # tastytrade pop-out side gutter
-        Match(title="tastytrade - Portfolio Report"),  # tastytrade pop-out allocation
-        Match(wm_class="tasty.javafx.launcher.LauncherFxApp"),  # tastytrade settings
+        Match(wm_class="confirmreset"),
+        Match(wm_class="dialog"),
+        Match(wm_class="download"),
+        Match(wm_class="error"),
+        Match(wm_class="file_progress"),
+        Match(wm_class="kdenlive"),
+        Match(wm_class="makebranch"),
+        Match(wm_class="maketag"),
+        Match(wm_class="notification"),
+        Match(wm_class="pinentry-gtk-2"),
+        Match(wm_class="ssh-askpass"),
+        Match(wm_class="toolbar"),
+        Match(wm_class="Yad"),
+        Match(title="branchdialog"),
+        Match(title="Confirmation"),
+        Match(title="Qalculate!"),
+        Match(title="pinentry"),
+        Match(title="tastycharts"),
+        Match(title="tastytrade"),
+        Match(title="tastytrade - Portfolio Report"),
+        Match(wm_class="tasty.javafx.launcher.LauncherFxApp"),
     ],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
 
@@ -705,12 +759,4 @@ def start_once():
     subprocess.call([home + "/.config/qtile/autostart.sh"])
 
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "LG3D"
