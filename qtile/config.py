@@ -45,7 +45,7 @@ from qtile_extras.widget.decorations import (
 import colors
 
 mod = "mod4"  # Sets mod key to SUPER/WINDOWS
-myTerm = "ghostty"  # My terminal of choice
+myTerm = "wezterm"  # My terminal of choice
 myBrowser = "zen-browser"  # My browser of choice
 myNeovim = "nvim"  # The space at the end is IMPORTANT!
 myFiles = "nautilus"  # The space at the end is IMPORTANT!
@@ -323,7 +323,8 @@ groups = [
         "2",
         layout="max",
         matches=[
-            Match(wm_class="ghostty"),
+            Match(wm_class="wezterm"),
+            Match(wm_class="org.wezfurlong.wezterm"),
         ],
     ),
     Group(
@@ -751,6 +752,14 @@ focus_on_window_activation = "smart"
 reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None
+
+
+@hook.subscribe.client_new
+def send_wezterm_to_group2(client):
+    """Always open wezterm on group 2."""
+    wm_class = (client.get_wm_class() or [""])[0].lower()
+    if wm_class == "org.wezfurlong.wezterm" or wm_class == "wezterm":
+        client.togroup("2")
 
 
 @hook.subscribe.startup_once

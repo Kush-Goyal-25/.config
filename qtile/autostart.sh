@@ -22,7 +22,7 @@ xrandr --newmode "3840×2160" 243.75 2560 2728 3000 3440 1140 1143 1153 1183 -hs
 firefox &
 zen-browser &
 sleep 1
-ghostty &
+wezterm &
 sleep 1
 excalidraw &
 flameshot &
