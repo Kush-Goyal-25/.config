@@ -46,7 +46,7 @@ import colors
 
 mod = "mod4"  # Sets mod key to SUPER/WINDOWS
 myTerm = "wezterm"  # My terminal of choice
-myBrowser = "zen-browser"  # My browser of choice
+myBrowser = "brave"  # My browser of choice
 myNeovim = "nvim"  # The space at the end is IMPORTANT!
 myFiles = "nautilus"  # The space at the end is IMPORTANT!
 myBrowser1 = "firefox"
@@ -96,6 +96,8 @@ def switch_layout_from_fullscreen(qtile, direction="next"):
         "zen-browser",
         "chromium",
         "google-chrome",
+        "brave",
+        "brave-bin",
         "brave-browser",
     }
     if win is not None:
@@ -149,6 +151,13 @@ keys = [
         lazy.layout.move_left().when(layout=["treetab"]),
         desc="Move window to the left/move tab left in treetab",
     ),
+    # Super + Shift + n = Open Grok
+    # Key(
+    #     [mod, "shift"],
+    #     "n",
+    #     lazy.spawn("xdg-open https://gemini.google.com"),
+    #     desc="Open Gemini in browser",
+    # ),
     Key(
         [mod, "shift"],
         "l",
@@ -317,6 +326,9 @@ groups = [
         matches=[
             Match(wm_class="firefox"),
             Match(wm_class="zen"),
+            Match(wm_class="brave"),
+            Match(wm_class="brave-browser"),
+            Match(wm_class="brave-bin"),
         ],
     ),
     Group(
@@ -349,10 +361,7 @@ groups = [
 
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-group_labels = ["󰖟", "󰨊", "󰈙", "󰏬", "󰃰", "󰙯", "󰎙", "󰕧", "󰊢"]
-# Nerd Font icons: browser, terminal, docs, design, calendar, chat, music, video, git
-# Fallback plain labels if Nerd Fonts not installed:
-# group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 group_layouts = ["max"] * 9
 
@@ -760,6 +769,14 @@ def send_wezterm_to_group2(client):
     wm_class = (client.get_wm_class() or [""])[0].lower()
     if wm_class == "org.wezfurlong.wezterm" or wm_class == "wezterm":
         client.togroup("2")
+
+
+@hook.subscribe.client_new
+def send_brave_to_group1(client):
+    """Always open brave on group 1."""
+    wm_class = (client.get_wm_class() or [""])[0].lower()
+    if wm_class in ("brave", "brave-browser", "brave-bin"):
+        client.togroup("1")
 
 
 @hook.subscribe.startup_once

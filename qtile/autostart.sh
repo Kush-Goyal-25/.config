@@ -5,11 +5,11 @@ export COLORSCHEME="DoomOne"
 ### AUTOSTART PROGRAMS ###
 
 lxsession &
-picom &
+# picom &
 # nm-applet &
-sleep 1
-blueman-applet &
-volctl &
+# sleep 1
+# blueman-applet &
+# volctl &
 
 sudo /usr/bin/kanata -c ~/.config/kanata/config.kbd &
 
@@ -20,12 +20,12 @@ nitrogen --restore &
 xrandr --newmode "3840×2160" 243.75 2560 2728 3000 3440 1140 1143 1153 1183 -hsync +vsync &
 
 firefox &
-zen-browser &
+brave &
 sleep 1
 wezterm &
-sleep 1
-excalidraw &
-flameshot &
+# sleep 1
+# excalidraw &
+# flameshot &
 sleep 2
 ticktick &
 
