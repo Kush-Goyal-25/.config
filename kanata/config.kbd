@@ -17,22 +17,25 @@
  |      lctl lmet lalt           spc            ralt prnt rctl      pgup up   pgdn
  |                                                                  lft down rght
  -------------------------------------------------------------------------- |#
+
 (defcfg
-  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  linux-dev /dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd
   process-unmapped-keys yes
   concurrent-tap-hold yes
 )
+
 (defalias mt (macro M-S-ret))
+
 (defalias
-f1 (macro M-S-1)
-f2 (macro M-S-2)
-f3 (macro M-S-3)
-f4 (macro M-S-4)
-f5 (macro M-S-5)
-f6 (macro M-S-6)
-f7 (macro M-S-7)
-f8 (macro M-S-8)
-f9 (macro M-S-9)
+  f1 (macro M-S-1)
+  f2 (macro M-S-2)
+  f3 (macro M-S-3)
+  f4 (macro M-S-4)
+  f5 (macro M-S-5)
+  f6 (macro M-S-6)
+  f7 (macro M-S-7)
+  f8 (macro M-S-8)
+  f9 (macro M-S-9)
 )
 
 (defalias
@@ -42,7 +45,6 @@ f9 (macro M-S-9)
   cx C-x
   cc C-c
   cv C-v
-  q S-'
   atb A-tab
   caps (tap-hold 15 15 caps bspc)
   rsft (tap-hold 15 15 rsft caps)
@@ -53,7 +55,7 @@ f9 (macro M-S-9)
   j (tap-hold-release 200 200 j rctl)
   k (tap-hold-release 200 200 k rsft)
   l (tap-hold-release 200 200 l ralt)
-  ; (tap-hold-release 200 200 ; rmet)
+  sem (tap-hold-release 200 200 ; rmet)
   y-pipe (tap-hold 250 250 y (macro C-q S-\))
   t-pipe (tap-hold 250 250 t (macro C-q -))
   h-pipe (tap-hold 200 200 h (macro C-q l C-q l))
@@ -62,46 +64,52 @@ f9 (macro M-S-9)
   r-pipe (tap-hold 300 300 r (macro C-q S-l))
   c-pipe (tap-hold 200 200 c C-S-l)
 )
+
 (defalias
-  1 S-1
-  2 S-2
-  3 S-3
-  4 S-4
-  5 S-5
-  6 S-6
-  7 S-7
-  8 S-8
-  9 S-9
-  0 S-0
-  \ S-\
-  ` S-`
-  = S-=
-  , S-,
-  . S-.
-  [ S-[
-  ] S-]
-  / S-/
+  S1 S-1
+  S2 S-2
+  S3 S-3
+  S4 S-4
+  S5 S-5
+  S6 S-6
+  S7 S-7
+  S8 S-8
+  S9 S-9
+  S0 S-0
+  Sbs S-\
+  Sgr S-grv
+  Seq S-=
+  Scm S-,
+  Sdt S-.
+  Slb S-[
+  Srb S-]
+  Ssl S-/
 )
-(defalias ;; layers
+
+(defalias
   mod_prog (layer-toggle program)
   mod_util (layer-toggle util)
   mod_util2 (layer-toggle util2)
   capi (layer-toggle capi)
 )
+
 (defalias
   stog  (tap-hold-release 200 200 spc @mod_prog)
   tut   (tap-hold-release 20 20 lsft @mod_util)
   cutil (tap-hold-release 20 20 caps bspc)
-  tut2   (tap-hold-release 150 150 ret @mod_util2)
-  test (tap-hold-release 20 20 [ @capi)
+  tut2  (tap-hold-release 150 150 ret @mod_util2)
+  test  (tap-hold-release 20 20 [ @capi)
 )
+
 (defchordsv2
-  (a ;) esc 250 all-released ()  ;; current
+  (a ;) esc 250 all-released ()
 )
+
 (defvar
   tap-time 400
   hold-time 400
 )
+
 (defsrc
                                                                                   end
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12         prnt  ins  pause
@@ -111,49 +119,53 @@ f9 (macro M-S-9)
   lsft  z    x    c    v    b    n    m    ,    .    /                      rsft up    pgdn
   lctl  lmet lalt               spc        ralt cmp  rctl                   lft down  rght
 )
+
 (deflayer qwerty
                                                                                     d
   esc   @f1   @f2   @f3   @f4   @f5   @f6   @f7   @f8   @f9   f10  f11   f12         prnt  ins  pause
   grv   1    2    3    4    5    6    7    8    9    0    -     =           bspc       home
   tab   @q-pipe    w    e    @r-pipe    @t-pipe    @y-pipe    u    i    o    p    @test     ]           \          del
-  @caps @a   @s   @d   @f   @g-pipe    @h-pipe    @j    @k   @l   @;    '                 @tut2        pgup
+  @caps @a   @s   @d   @f   @g-pipe    @h-pipe    @j    @k   @l   @sem  '                 @tut2        pgup
   @tut  z    x    @c-pipe    v    b    n    m    ,    .    /                      @rsft up    pgdn
   _  lmet @ca               @stog        @mt cmp  rctl                   lft down  rght
 )
+
 (deflayer program
                                                                                        _
   _       _    _    _    _    _    _    _    _    _    _       _       _          _    _    _
-  @atb    @1   @2   @3   @4   @5   @6   @7   @8   @9   @0      @s_und  @=         _         _
-  _       8    7    6    5    _    S-6    @[    @]    +   @2      {       }          _      _
-  _       4  3    2    1    S-3    lmet    @9   @0   @1     =      @/                 _         _
-  _       _    0  9  _  @\  -    [   ]   \    @/                         _    _    _
+  @atb    @S1  @S2  @S3  @S4  @S5  @S6  @S7  @S8  @S9  @S0     @s_und  @Seq       _         _
+  _       8    7    6    5    _    S-6   @Slb  @Srb  +   @S2     {       }          _      _
+  _       4    3    2    1    S-3   lmet  @S9  @S0  @S1   =      @Ssl               _         _
+  _       _    0    9    _    @Sbs  -    [    ]    \    @Ssl                        _    _    _
   _       _    _              _              _    _    _                          _    _    _
 )
+
 (deflayer util
                                                                                        _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _    _    _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _         _
-  _       _    _    _    _    _    _    @5    @`   @8     @7       _     _           _         _
-  _       _    _    _    _    _    lft    down up rght   =       _                 _         _
-  _       _    _    _    _    _    _    S-;    =    spc     _                         _    _    _
+  _       _    _    _    _    _    _    @S5   @Sgr  @S8   @S7     _     _           _         _
+  _       _    _    S-,    -    _    lft   down  up   rght  =       _                 _         _
+  _       _    _    _    _    _    grv   S-;   =    spc   _                         _    _    _
   _       _    _              _              _    _     _                         _    _    _
 )
+
 (deflayer util2
                                                                                        _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _    _    _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _         _
-  _       8    7    6    5    _    _    _    _   _     S-;       _     _           _         _
-  _       4    3    2    1    _    _    _ b j   k       ,                 _         _
+  _       8    7    6    5    _    _    _    _    _     S-;     _     _           _         _
+  _       4    3    2    1    _    _    _    b    j     k       ,                 _         _
   _       _    0    9    _    _    _    _    _    ;     .                         _    _    _
   _       _    _              _              _    _     _                         _    _    _
 )
+
 (deflayer capi
                                                                                        _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _    _    _
   _       _    _    _    _    _    _    _    _    _     _       _     _           _         _
-  _       _    S-w    S-f    _    _    _    _    _   _     _       _     _           _         _
-  _       _    S-c    S-d    S-v    _    _    _ _ _   _       _                 _         _
+  _       y    S-w  S-f  _    _    _    _    _    _     _       _     _           _         _
+  _       S-5  S-c  S-d  S-v  _    _    _    S-o    _     _       _                 _         _
   _       _    _    _    _    _    _    _    _    _     _                         _    _    _
   _       _    _              _              _    _     _                         _    _    _
 )
-
